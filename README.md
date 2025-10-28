@@ -147,7 +147,7 @@ The software may collect information about you and your use of the software and 
 
 ## Compliance Responsibility
 
-This MCP server may interact with clients and services outside Microsoft compliance boundaries. You are responsible for ensuring that any integration complies with applicable organizational, regulatory, and contractual requirements.
+This MCP server may be installed and used with clients and services that operate outside Microsoft compliance boundaries. You are responsible for ensuring that any integration complies with applicable organizational, regulatory, and contractual requirements.
 
 ## Third Party Components
 
