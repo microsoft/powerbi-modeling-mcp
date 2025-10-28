@@ -16,7 +16,7 @@ It’s a local, AI-ready Model Context Protocol (MCP) server that encapsulates t
 
 - **🔍 Query and Validate DAX** - AI assistants can execute and validate DAX queries against your model, helping you test measures, troubleshoot calculations, and explore your data
 
-📹 Watch the video for an end-to-end demo: https://www.youtube.com/watch?v=nViU15ANL9M
+📹 Watch the video for an [end-to-end demo](https://youtu.be/n9JaxHDQIqo?si=U-lUeuJRN-Q5gVM2).
 
 ## 🚀 Getting started
 
