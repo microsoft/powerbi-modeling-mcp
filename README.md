@@ -18,6 +18,9 @@ It’s a local, AI-ready Model Context Protocol (MCP) server that encapsulates t
 
 📹 Watch the video for an [end-to-end demo](https://youtu.be/n9JaxHDQIqo?si=U-lUeuJRN-Q5gVM2).
 
+> [!WARNING]  
+> The Power BI Modeling MCP server can only execute modeling operations. It cannot modify other types of Power BI metadata, such as report pages or semantic model elements like diagram layouts.
+
 ## 🚀 Getting started
 
 ### Installation
@@ -26,9 +29,10 @@ It’s a local, AI-ready Model Context Protocol (MCP) server that encapsulates t
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/download).
 2. Install the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
-3. Install the [Power BI Modeling MCP](https://marketplace.visualstudio.com) extension.
-   
-   
+3. Install the [Power BI Modeling MCP](https://marketplace.visualstudio.com) Visual Studio Code extension.
+![vs code install](docs/img/vscode-extension-install.png)
+4. Open Copilot chat and confirm the Power BI Modeling MCP server is available.
+![vscode-mcp-tools](docs/img/vscode-mcp-tools.png)
 
 #### Manual setup
 
@@ -39,20 +43,37 @@ This MCP Server can also be configured across other IDEs, CLIs, and MCP clients:
 3. Run `\extension\server\powerbi-modeling-mcp.exe`
 4. Copy the MCP JSON registration from the console and register it in your preferred MCP client tool.
 
+Example of config that should work in most MCP clients:
+
+```json
+{
+"servers": {
+		"powerbi-modeling-mcp": {
+			"type": "stdio",
+			"command": "[PATH TO YOUR MCP]\\powerbi-modeling-mcp.exe",
+			"args": [
+				"--start"                
+			],
+			"env": {}			
+		}
+	}
+}
+```
+
 ### Usage
 
 > [!WARNING]  
 > Use caution when connecting this MCP server to a semantic model. The underlying LLM may produce unexpected or inaccurate results, which could lead to unintended changes. Always create a backup of your model before performing any operations.
 
-**First, connect to a Power BI semantic model**, which can reside in either Power BI Desktop, a local Power BI Project (PBIP) or a Fabric workspace.
+**First, you must connect to a Power BI semantic model**, which can reside in Power BI Desktop, Fabric workspace or in Power BI Project (PBIP) files.
 
 - **For Power BI Desktop:** enter a prompt such as `Connect to '[File Name]' in Power BI Desktop`
 
-- **For Semantic Model in PBIP:** enter a prompt such as `Open semantic model from PBIP folder '[Path to the TMDL files in the PBIP folder]'`
-
 - **For Semantic Model in Fabric Workspace:** enter a prompt such as `Connect to semantic model '[Semantic Model Name]' in Fabric Workspace '[Workspace Name]'`
+  
+- **For Semantic Model in PBIP:** enter a prompt such as `Open semantic model from PBIP folder '[Path to the TMDL folder in the PBIP]'`
 
-Once the connection is successfully established, you can try one of the following scenarios:
+Once the connection is established, you can use natural language to ask the AI agent to make any modeling changes. To get started, try one of the following scenarios.
 
 | Scenario                                                | Prompt examples                                                                                                                                                                   |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -112,7 +133,11 @@ The MCP server supports several command line options:
 | `--skipconfirmation` |         | Automatically approves all write operations without confirmation prompts. Only use skip confirmation mode when you're confident about the operations being performed and have appropriate backups of your semantic model. |
 | `--compatibility`    | PowerBI | By default, it is optimized for Power BI semantic models. Change the setting to `Full` if you want to run this MCP server against Analysis Services databases.                                                            |
 
-You can modify the `args` in the MCP registration JSON:
+**For Visual Studio Code**, you can modify the `args` in the settings:
+
+[TODO]
+
+**For Manual installations**, you can modify the `args` in the MCP registration JSON:
 
 ```json
 {
