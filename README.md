@@ -27,6 +27,8 @@ It’s a local, AI-ready Model Context Protocol (MCP) server that encapsulates t
 1. Install [Visual Studio Code](https://code.visualstudio.com/download).
 2. Install the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
 3. Install the [Power BI Modeling MCP](https://marketplace.visualstudio.com) extension.
+   
+   
 
 #### Manual setup
 
@@ -34,7 +36,7 @@ This MCP Server can also be configured across other IDEs, CLIs, and MCP clients:
 
 1. Download the latest version [here](../../releases/latest).
 2. Unzip the contents to a folder of your choice, for example: `%USERPROFILE%\MCPServers\PowerBIModelingMCP`
-3. Run `powerbi-modeling-mcp.exe`
+3. Run `\extension\server\powerbi-modeling-mcp.exe`
 4. Copy the MCP JSON registration from the console and register it in your preferred MCP client tool.
 
 ### Usage
