@@ -16,7 +16,7 @@ It’s a local, AI-ready Model Context Protocol (MCP) server that encapsulates t
 
 - **🔍 Query and Validate DAX** - AI assistants can execute and validate DAX queries against your model, helping you test measures, troubleshoot calculations, and explore your data
 
-📹 Watch the video for an end-to-end demo: https://www.youtube.com/watch?v=nViU15ANL9M
+📹 Watch the video for an [end-to-end demo](https://youtu.be/n9JaxHDQIqo?si=U-lUeuJRN-Q5gVM2).
 
 ## 🚀 Getting started
 
@@ -78,6 +78,7 @@ Once the connection is successfully established, you can try one of the followin
 | **measure_operations**                  | Manage individual DAX measures (create, update, delete, get, list, rename, move between tables)                |
 | **relationship_operations**             | Handle relationships between tables (create, update, delete, activate/deactivate, find)                        |
 | **dax_query_operations**                | Execute, validate, and generate DAX queries against the model                                                  |
+| **trace_operations**                    | Perform trace operations on semantic model to capture and analyze Analysis Services events.                    |
 | **partition_operations**                | Manage table partitions (create, update, delete, refresh specific partitions)                                  |
 | **user_hierarchy_operations**           | Work with user-defined hierarchies (create, update, delete levels, reorder)                                    |
 | **calculation_group_operations**        | Manage calculation groups and calculation items for time intelligence and other calculations                   |
@@ -139,9 +140,13 @@ You can modify the `args` in the MCP registration JSON:
 
 Your credentials are always handled securely through the official [Azure Identity SDK](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md) - **we never store or manage tokens directly**.
 
-MCP as a phenomenon is very novel and cutting-edge. As with all new technology standards, consider doing a security review to ensure any systems that integrate with MCP servers follow all regulations and standards your system is expected to adhere to. This includes not only the Azure MCP Server, but any MCP client/agent that you choose to implement down to the model provider.
+MCP as a phenomenon is very novel and cutting-edge. As with all new technology standards, consider doing a security review to ensure any systems that integrate with MCP servers follow all regulations and standards your system is expected to adhere to. This includes not only the Power BI Modeling MCP Server, but any MCP client/agent that you choose to implement down to the model provider.
 
 You should follow Microsoft security guidance for MCP servers, including enabling Entra ID authentication, secure token management, and network isolation. Refer to [Microsoft Security Documentation](https://learn.microsoft.com/en-us/azure/api-management/secure-mcp-servers) for details.
+
+## Permissions and Risk
+
+MCP clients can invoke operations based on the user’s Fabric RBAC permissions. Autonomous or misconfigured clients may perform destructive actions. You should review and apply least-privilege RBAC roles and implement safeguards before deployment. Certain safeguards, such as flags to prevent destructive operations, are not standardized in the MCP specification and may not be supported by all clients.
 
 ## Data Collection
 
@@ -149,7 +154,7 @@ The software may collect information about you and your use of the software and 
 
 ## Compliance Responsibility
 
-This MCP server may interact with clients and services outside Microsoft compliance boundaries. You are responsible for ensuring that any integration complies with applicable organizational, regulatory, and contractual requirements.
+This MCP server may be installed and used with clients and services that operate outside Microsoft compliance boundaries. You are responsible for ensuring that any integration complies with applicable organizational, regulatory, and contractual requirements.
 
 ## Third Party Components
 
