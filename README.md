@@ -30,9 +30,12 @@ It’s a local, AI-ready Model Context Protocol (MCP) server that encapsulates t
 1. Install [Visual Studio Code](https://code.visualstudio.com/download).
 2. Install the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
 3. Install the [Power BI Modeling MCP](https://marketplace.visualstudio.com) Visual Studio Code extension.
-![vs code install](docs/img/vscode-extension-install.png)
+   
+	![vs code install](docs/img/vscode-extension-install.png)
+
 4. Open Copilot chat and confirm the Power BI Modeling MCP server is available.
-![vscode-mcp-tools](docs/img/vscode-mcp-tools.png)
+   
+	![vscode-mcp-tools](docs/img/vscode-mcp-tools.png)
 
 #### Manual setup
 
@@ -40,7 +43,7 @@ This MCP Server can also be configured across other IDEs, CLIs, and MCP clients:
 
 1. Download the latest version [here](../../releases/latest).
 2. Unzip the contents to a folder of your choice, for example: `%USERPROFILE%\MCPServers\PowerBIModelingMCP`
-3. Run `\extension\server\powerbi-modeling-mcp.exe`
+3. Run `%USERPROFILE%\MCPServers\PowerBIModelingMCP\extension\server\powerbi-modeling-mcp.exe`
 4. Copy the MCP JSON registration from the console and register it in your preferred MCP client tool.
 
 Example of config that should work in most MCP clients:
@@ -50,7 +53,7 @@ Example of config that should work in most MCP clients:
 "servers": {
 		"powerbi-modeling-mcp": {
 			"type": "stdio",
-			"command": "[PATH TO YOUR MCP]\\powerbi-modeling-mcp.exe",
+			"command": "%USERPROFILE%\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
 			"args": [
 				"--start"                
 			],
@@ -63,7 +66,7 @@ Example of config that should work in most MCP clients:
 ### Usage
 
 > [!WARNING]  
-> Use caution when connecting this MCP server to a semantic model. The underlying LLM may produce unexpected or inaccurate results, which could lead to unintended changes. Always create a backup of your model before performing any operations.
+> Use caution when connecting this MCP server to a semantic model. The underlying LLM may produce unexpected or inaccurate results, which could lead to unintended changes. **Always create a backup of your model before performing any operations.**
 
 **First, you must connect to a Power BI semantic model**, which can reside in Power BI Desktop, Fabric workspace or in Power BI Project (PBIP) files.
 
@@ -133,17 +136,19 @@ The MCP server supports several command line options:
 | `--skipconfirmation` |         | Automatically approves all write operations without confirmation prompts. Only use skip confirmation mode when you're confident about the operations being performed and have appropriate backups of your semantic model. |
 | `--compatibility`    | PowerBI | By default, it is optimized for Power BI semantic models. Change the setting to `Full` if you want to run this MCP server against Analysis Services databases.                                                            |
 
-**For Visual Studio Code**, you can modify the `args` in the settings:
+**For Visual Studio Code**, you can set the command line options configuring the `args` setting:
 
-[TODO]
+Open Visual Studio Code [user settings](https://code.visualstudio.com/docs/configure/settings#_settings-editor) and search for `@ext:Microsoft.powerbi-modeling-mcp`.
 
-**For Manual installations**, you can modify the `args` in the MCP registration JSON:
+![VS Code settings](docs/img/vscode-mcp-settings.png)
+
+**For Manual installations**, you can set the command line options configuring the `args` property in the MCP Server registration JSON:
 
 ```json
 {
 "servers": {
 		"powerbi-modeling-mcp": {
-			"command": "[PATH TO YOUR MCP]\\powerbi-modeling-mcp.exe",
+			"command": "[Path To MCP Server folder]\\powerbi-modeling-mcp.exe",
 			"args": [
 				"--start"
                 , "--skipconfirmation"
