@@ -12,6 +12,8 @@ It’s a local, AI-ready Model Context Protocol (MCP) server that encapsulates t
 
 - **⚡ Bulk Operations at Scale** - AI applications can execute batch modeling operations on hundreds of objects simultaneously — bulk renaming, bulk refactoring, model translations, or model security rules - with transaction support and error handling, turning hours of repetitive work into seconds.
 
+- **✅ Apply modeling best practices** - Easily evaluate and implement modeling best practices against your model.
+
 - **🤖 Agentic Development Workflows** - Supports working with [TMDL and Power BI Project files](https://learn.microsoft.com/power-bi/developer/projects/projects-dataset#tmdl-format), enabling AI agents to autonomously plan, create, and execute complex modeling tasks across your semantic model codebase.
 
 - **🔍 Query and Validate DAX** - AI assistants can execute and validate DAX queries against your model, helping you test measures, troubleshoot calculations, and explore your data
@@ -19,7 +21,8 @@ It’s a local, AI-ready Model Context Protocol (MCP) server that encapsulates t
 📹 Watch the video for an [end-to-end demo](https://youtu.be/n9JaxHDQIqo?si=U-lUeuJRN-Q5gVM2).
 
 > [!WARNING]  
-> The Power BI Modeling MCP server can only execute modeling operations. It cannot modify other types of Power BI metadata, such as report pages or semantic model elements like diagram layouts.
+> - Use caution when connecting an AI Agent to a semantic model. The underlying LLM may produce unexpected or inaccurate results, which could lead to unintended changes. **Always create a backup of your model before performing any operations.** 
+> - The Power BI Modeling MCP server can only execute modeling operations. It cannot modify other types of Power BI metadata, such as report pages or semantic model elements like diagram layouts.
 
 ## 🚀 Getting started
 
@@ -65,23 +68,34 @@ Example of config that should work in most MCP clients:
 
 ### Usage
 
-> [!WARNING]  
-> Use caution when connecting this MCP server to a semantic model. The underlying LLM may produce unexpected or inaccurate results, which could lead to unintended changes. **Always create a backup of your model before performing any operations.** 
-
 **First, you must connect to a Power BI semantic model**, which can reside in Power BI Desktop, Fabric workspace or in Power BI Project (PBIP) files.
 
-- **For Power BI Desktop:** enter a prompt such as `Connect to '[File Name]' in Power BI Desktop`
+- **For Power BI Desktop:** 
 
-- **For Semantic Model in Fabric Workspace:** enter a prompt such as `Connect to semantic model '[Semantic Model Name]' in Fabric Workspace '[Workspace Name]'`
+	```
+	Connect to '[File Name]' in Power BI Desktop
+	```
+
+- **For Semantic Model in Fabric Workspace:**
+
+	```
+	Connect to semantic model '[Semantic Model Name]' in Fabric Workspace '[Workspace Name]'
+	```
   
-- **For Semantic Model in PBIP:** enter a prompt such as `Open semantic model from PBIP folder '[Path to the TMDL folder in the PBIP]'`
+- **For Power BI Project files:**
+
+	```
+	Open semantic model from PBIP folder '[Path to the definition/ TMDL folder in the PBIP]'
+	```
 
 Once the connection is established, you can use natural language to ask the AI agent to make any modeling changes. To get started, try one of the following scenarios.
 
+#### Usage Examples
+
 | Scenario                                                | Prompt examples                                                                                                                                                                   |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Analyze naming convention and bulk rename.              | `Analyze the naming convention of my model and suggest renames for consistency.`<br>`Analyze the naming convention of table 'Sales' and apply the same pattern across all model.` |
-| Set descriptions across your model for documentation.   | `Add descriptions to all measures, columns, and tables to clearly communicate the purpose of your model and explain the logic behind your DAX calculations in simple terms.`      |
+| Analyze naming convention and bulk rename.              | `Analyze my model’s naming conventions and suggest renames to ensure consistency.`<br>`Analyze the naming convention of the ‘Sales’ table and apply the same pattern across the entire model.` |
+| Set descriptions across your model for documentation.   | `Add descriptions to all measures, columns, and tables to clearly explain their purpose and explain the logic behind the DAX code in simple, understandable terms.`      |
 | Translate your semantic model.                          | `Generate a French translation for my model including tables, columns and measures.`                                                                                              |
 | Refactor measures into Calculation Groups or UDF.       | `Refactor measures 'Sales Amount 12M Avg' and 'Sales Amount 6M Avg' into a calculation group and include new variants: 24M and 3M.`                                               |
 | Refactor your queries to use semantic model parameters. | `Analyze the Power Query code for all tables, identify the data source configuration, and create semantic model parameters to enable easy switching of the data source location.` |
@@ -165,6 +179,10 @@ Open Visual Studio Code [user settings](https://code.visualstudio.com/docs/confi
 - Check the [Troubleshooting guide](TROUBLESHOOTING.md) to diagnose and resolve common issues.
 - We're building this in the open. Your feedback is much appreciated, and will help us shape the future of the Power BI Modeling MCP server.
     - 👉 [Open an issue](../../issues) in the public GitHub repository - we’d love to hear from you!
+
+## Considerations and limitations
+
+- MCP server is only supported on the Windows platform
 
 ## Security
 
