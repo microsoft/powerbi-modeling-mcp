@@ -25,17 +25,19 @@ The **Power BI Modeling MCP Server** brings Power BI semantic modeling capabilit
 > - LLMs might unintentionally expose sensitive information from the semantic model, including data or metadata, in logs or responses. **Exercise caution when sharing chat sessions.**
 > - The **Power BI Modeling MCP server** can only execute modeling operations. It cannot modify other types of Power BI metadata, such as report pages or semantic model elements like diagram layouts.
 
-## 📦 How to install
+## 📦 Installation
+
+The easiest way to install this MCP Server is by using the **Visual Studio Code extension** extension together with **GitHub Copilot**. However, you can also manually install it in any other MCP client.
 
 ### Visual Studio Code (Recommended)
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/download).
 2. Install the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
-3. Install the [Power BI Modeling MCP](https://marketplace.visualstudio.com) Visual Studio Code extension.
+3. Install the [Power BI Modeling MCP Visual Studio Code extension](https://marketplace.visualstudio.com).
    
 	![vs code install](docs/img/vscode-extension-install.png)
 
-4. Open Copilot chat and confirm the **Power BI Modeling MCP server** is available.
+4. Open [GitHub Copilot chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) and confirm the **Power BI Modeling MCP server** is available.
    
 	![vscode-mcp-tools](docs/img/vscode-mcp-tools.png)
 
@@ -45,7 +47,7 @@ This MCP Server can also be configured across other IDEs, CLIs, and MCP clients:
 
 1. Download the latest version [here](../../releases/latest).
 2. Unzip the contents to a folder of your choice, for example: `C:\MCPServers\PowerBIModelingMCP`
-3. Run `C:\MCPServers\PowerBIModelingMCP\extension\server\powerbi-modeling-mcp.exe`
+3. Run `\extension\server\powerbi-modeling-mcp.exe`
 4. Copy the MCP JSON registration from the console and register it in your preferred MCP client tool.
 
 Example of config that should work in most MCP clients:
@@ -65,7 +67,7 @@ Example of config that should work in most MCP clients:
 }
 ```
 
-## 🚀 How to use
+## 🚀 Get started
 
 **First, you must connect to a Power BI semantic model**, which can reside in Power BI Desktop, Fabric workspace or in Power BI Project (PBIP) files.
 
