@@ -162,9 +162,9 @@ This MCP server includes built-in prompts to help you get started. In **Visual S
 
 | Prompt Name                 | What It Does                                                                                                                                                                                   |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **CreateDAXQuery**          | Create a DAX query from your semantic model and natural language question. Attaches the `dax_query_instructions_and_examples` resource to provide the LLM with DAX language context.           |
-| **RunDAXQueryWithMetrics**  | Execute the DAX query with option to clear the cache and return only the execution metrics.                                                                                                    |
-| **AnalyzeDAXQuery**         | Analyze DAX query performance by running it with a cleared cache and reviewing execution metrics for potential issues.                                                                         |
+| **CreateDAXQuery**          | Creates a DAX query from your semantic model and natural language question. Attaches the `dax_query_instructions_and_examples` resource to provide the LLM with DAX language context.           |
+| **RunDAXQueryWithMetrics**  | Executes the DAX query with option to clear the cache and return only the execution metrics.                                                                                                    |
+| **AnalyzeDAXQuery**         | Analyzes DAX query performance by running it with a cleared cache and reviewing execution metrics for potential issues.                                                                         |
 | **ConnectToPowerBIDesktop** | Searches for the Power BI Desktop Analysis Services instance that matches the file name and connects to it.                                                                                    |
 | **ConnectToFabric**         | Connects to a semantic model in a Fabric Workspace.                                                                                                                                            |
 | **ConnectToPowerBIProject** | Loads the TMDL definition from the semantic model in the Power BI Project files. Attaches the `powerbi_project_instructions` resource to provide the LLM with Power BI Project (PBIP) context. |
