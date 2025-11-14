@@ -154,6 +154,24 @@ This MCP Server supports the [Elicitation MCP protocol](https://modelcontextprot
 > [!NOTE]
 > This project is in Public Preview and tools may significantly change prior to our General Availability.
 
+## ▶️ Available prompts
+
+This MCP server includes built-in prompts to help you get started. In **Visual Studio Code**, access the available MCP prompts by typing the `/` command in the chat.
+
+![vscode-mcp-prompts](docs/img/vscode-mcp-prompts.png)
+
+| Prompt Name                 | What It Does                                                                                                                                                                                   |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **CreateDAXQuery**          | Creates a DAX query from your semantic model and natural language question. Attaches the `dax_query_instructions_and_examples` resource to provide the LLM with DAX language context.           |
+| **RunDAXQueryWithMetrics**  | Executes the DAX query with option to clear the cache and return only the execution metrics.                                                                                                    |
+| **AnalyzeDAXQuery**         | Analyzes DAX query performance by running it with a cleared cache and reviewing execution metrics for potential issues.                                                                         |
+| **ConnectToPowerBIDesktop** | Searches for the Power BI Desktop Analysis Services instance that matches the file name and connects to it.                                                                                    |
+| **ConnectToFabric**         | Connects to a semantic model in a Fabric Workspace.                                                                                                                                            |
+| **ConnectToPowerBIProject** | Loads the TMDL definition from the semantic model in the Power BI Project files. Attaches the `powerbi_project_instructions` resource to provide the LLM with Power BI Project (PBIP) context. |
+
+> [!NOTE]
+> Some prompts also attach resources that provide important context for the LLM.
+
 ## ⚙️ Settings
 
 The MCP server supports several command line options:
@@ -168,7 +186,7 @@ The MCP server supports several command line options:
 
 **For Visual Studio Code**, you can set the command line options configuring the `args` setting:
 
-Open Visual Studio Code [user settings](https://code.visualstudio.com/docs/configure/settings#_settings-editor) and search for `@ext:Microsoft.powerbi-modeling-mcp`.
+Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/configure/settings#_settings-editor) and search for `@ext:Microsoft.powerbi-modeling-mcp`.
 
 ![VS Code settings](docs/img/vscode-mcp-settings.png)
 
@@ -215,7 +233,7 @@ MCP clients can invoke operations based on the user’s Fabric RBAC permissions.
 
 ## Data Collection
 
-The software may collect information about you and your use of the software and send it to Microsoft. Microsoft may use this information to provide services and improve our products and services. You may turn off the telemetry as described in the repository. There are also some features in the software that may enable you and Microsoft to collect data from users of your applications. If you use these features, you must comply with applicable law, including providing appropriate notices to users of your applications together with a copy of Microsoft's [privacy statement](https://www.microsoft.com/privacy/privacystatement). You can learn more about data collection and use in the help documentation and our privacy statement. Your use of the software operates as your consent to these practices.
+The software may collect information about you and your use of the software and send it to Microsoft. Microsoft may use this information to provide services and improve our products and services. There are also some features in the software that may enable you and Microsoft to collect data from users of your applications. If you use these features, you must comply with applicable law, including providing appropriate notices to users of your applications together with a copy of Microsoft's [privacy statement](https://www.microsoft.com/privacy/privacystatement). You can learn more about data collection and use in the help documentation and our privacy statement. Your use of the software operates as your consent to these practices.
 
 ## Compliance Responsibility
 
