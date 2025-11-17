@@ -33,7 +33,7 @@ The easiest way to install this MCP Server is by using the **Visual Studio Code 
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/download).
 2. Install the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
-3. Install the [Power BI Modeling MCP Visual Studio Code extension](https://marketplace.visualstudio.com).
+3. Install the [Power BI Modeling MCP Visual Studio Code extension](https://aka.ms/powerbi-modeling-mcp-vscode).
    
 	![vs code install](docs/img/vscode-extension-install.png)
 
@@ -126,7 +126,7 @@ This MCP Server supports the [Elicitation MCP protocol](https://modelcontextprot
 | **connection_operations**               | Connect to Power BI Desktop or Fabric workspaces                                                               |
 | **database_operations**                 | Manage semantic models - connect, create, update, list databases, import/export TMDL folders, deploy to Fabric |
 | **transaction_operations**              | Control database transactions (begin, commit, rollback, get status)                                            |
-| **model_operations**                    | Work with the overall model (get info, create, update, refresh, get stats, rename)                             |
+| **model_operations**                    | Work with the overall model (get, create, update, refresh, get stats, rename)                                  |
 | **table_operations**                    | Manage tables (create, update, delete, get, list, refresh, rename)                                             |
 | **column_operations**                   | Manage individual table columns (create, update, delete, get, list, rename)                                    |
 | **measure_operations**                  | Manage individual DAX measures (create, update, delete, get, list, rename, move between tables)                |
@@ -216,7 +216,6 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 
 ## Considerations and limitations
 
-- This MCP server is only supported on the Windows platform.
 - This MCP server follows the same rules and behaviors as modeling operations performed by External Tools. Refer to the [documentation](https://learn.microsoft.com/power-bi/transform-model/desktop-external-tools#data-modeling-operations) for more information.
 
 ## Security
