@@ -18,7 +18,7 @@ The **Power BI Modeling MCP Server** brings Power BI semantic modeling capabilit
 
 - **🔍 Query and Validate DAX** - AI assistants can execute and validate DAX queries against your model, helping you test measures, troubleshoot calculations, and explore your data
 
-📹 Watch the video for an [end-to-end demo](https://youtu.be/n9JaxHDQIqo?si=U-lUeuJRN-Q5gVM2).
+📹 Watch the video for an [end-to-end demo](https://aka.ms/power-modeling-mcp-demo).
 
 > [!WARNING]  
 > - Use caution when connecting an AI Agent to a semantic model. The underlying LLM may produce unexpected or inaccurate results, which could lead to unintended changes. **Always create a backup of your model before performing any operations.** 
