@@ -37,7 +37,7 @@ The easiest way to install this MCP Server is by using the **Visual Studio Code 
    
 	![vs code install](docs/img/vscode-extension-install.png)
 
-4. Open [GitHub Copilot chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) and confirm the **Power BI Modeling MCP server** is available and selected.
+4. Open [GitHub Copilot chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) and confirm the **powerbi-modeling-mcp** is available and selected.
    
 	![vscode-mcp-tools](docs/img/vscode-mcp-tools.png)
 
@@ -167,7 +167,7 @@ This MCP server includes built-in prompts to help you get started. In **Visual S
 | **AnalyzeDAXQuery**         | Analyzes DAX query performance by running it with a cleared cache and reviewing execution metrics for potential issues.                                                                         |
 | **ConnectToPowerBIDesktop** | Searches for the Power BI Desktop Analysis Services instance that matches the file name and connects to it.                                                                                    |
 | **ConnectToFabric**         | Connects to a semantic model in a Fabric Workspace.                                                                                                                                            |
-| **ConnectToPowerBIProject** | Loads the TMDL definition from the semantic model in the Power BI Project files. Attaches the `powerbi_project_instructions` resource to provide the LLM with Power BI Project (PBIP) context. |
+| **ConnectToPBIP** | Loads the TMDL definition from the semantic model in the Power BI Project files. Attaches the `powerbi_project_instructions` resource to provide the LLM with Power BI Project (PBIP) context. |
 
 > [!NOTE]
 > Some prompts also attach resources that provide important context for the LLM.
@@ -216,6 +216,7 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 
 ## Considerations and limitations
 
+- Connecting to a Semantic Model in a Fabric workspace may not work in your tenant due to the ongoing rollout of the client ID used for authentication. 
 - This MCP server follows the same rules and behaviors as modeling operations performed by External Tools. Refer to the [documentation](https://learn.microsoft.com/power-bi/transform-model/desktop-external-tools#data-modeling-operations) for more information.
 
 ## Security
