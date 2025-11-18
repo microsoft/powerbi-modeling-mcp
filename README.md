@@ -45,7 +45,7 @@ The easiest way to install this MCP Server is by using the **Visual Studio Code 
 
 This MCP Server can also be configured across other IDEs, CLIs, and MCP clients:
 
-1. Download the latest version [here]([../../releases/latest](https://aka.ms/powerbi-modeling-mcp-vscode)).
+1. Download the latest version [here](https://aka.ms/powerbi-modeling-mcp-vscode).
    
 	![vscode-extension-download](docs/img/vscode-extension-download.png)
 
