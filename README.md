@@ -45,13 +45,11 @@ The easiest way to install this MCP Server is by using the **Visual Studio Code 
 
 This MCP Server can also be configured across other IDEs, CLIs, and MCP clients:
 
-1. Download the latest version [here](https://aka.ms/powerbi-modeling-mcp-vscode).
-   
-	![vscode-extension-download](docs/img/vscode-extension-download.png)
-
-2. Unzip the contents to a folder of your choice, for example: `C:\MCPServers\PowerBIModelingMCP`
-3. Run `\extension\server\powerbi-modeling-mcp.exe`
-4. Copy the MCP JSON registration from the console and register it in your preferred MCP client tool.
+1. Download the latest version of the vsix here: [win32-x64](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/analysis-services/vsextensions/powerbi-modeling-mcp/0.1.8/vspackage?targetPlatform=win32-x64)	
+2. Rename the downloaded `.visx` file to `.zip`
+3. Unzip the contents to a folder of your choice, for example: `C:\MCPServers\PowerBIModelingMCP`
+4. Run `\extension\server\powerbi-modeling-mcp.exe`
+5. Copy the MCP JSON registration from the console and register it in your preferred MCP client tool.
 
 Example of config that should work in most MCP clients:
 
