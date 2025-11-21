@@ -1,12 +1,21 @@
 # Release History
 
+## 0.1.9
+
+- Bug fixes: connection name issue, null-ref dropping tables and others
+- Support for ARM based processors
+
+## 0.1.8
+
+- Documentation updates
+
 ## 0.1.7
 
 - Bug fixes
 - Automatic connection names
 - Execution metrics option when running DAX queries
 - Tool description updates
-- 
+  
 ## 0.1.5
 
 - Bug fixes
