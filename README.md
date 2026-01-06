@@ -57,18 +57,31 @@ Example of config that should work in most MCP clients:
 
 ```json
 {
-"servers": {
+	"servers": {
 		"powerbi-modeling-mcp": {
 			"type": "stdio",
 			"command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
-			"args": [
-				"--start"                
-			],
-			"env": {}			
+			"args": ["--start"],
+			"env": {}
 		}
 	}
 }
 ```
+
+Google Antigravity config:
+
+```json
+{
+	"mcpServers": {
+		"powerbi-modeling-mcp": {
+			"type": "stdio",
+			"command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
+			"args": ["--start"],
+			"timeout": 120000
+		}
+	}
+}
+```	
 
 ## 🚀 Get started
 
