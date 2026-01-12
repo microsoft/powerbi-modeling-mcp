@@ -47,7 +47,7 @@ The easiest way to install this MCP Server is by using the **Visual Studio Code 
 
 This MCP Server can also be configured across other IDEs, CLIs, and MCP clients:
 
-1. Download the latest version of the vsix here: [win32-x64](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/analysis-services/vsextensions/powerbi-modeling-mcp/0.1.8/vspackage?targetPlatform=win32-x64)	
+1. Download the latest version of the vsix here: [win32-x64](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/analysis-services/vsextensions/powerbi-modeling-mcp/0.1.9/vspackage?targetPlatform=win32-x64)	
 2. Rename the downloaded `.visx` file to `.zip`
 3. Unzip the contents to a folder of your choice, for example: `C:\MCPServers\PowerBIModelingMCP`
 4. Run `\extension\server\powerbi-modeling-mcp.exe`
@@ -147,12 +147,6 @@ This MCP Server supports the [Elicitation MCP protocol](https://modelcontextprot
 | **object_translation_operations**       | Handle translations for model objects across different cultures/languages                                      |
 | **calendar_operations**                 | Manage calendar objects and time intelligence column groups                                                    |
 | **query_group_operations**              | Organize and manage query groups for Power Query expressions                                                   |
-| **batch_table_operations**              | Perform bulk operations on tables (create, update, delete, get, rename multiple tables)                        |
-| **batch_column_operations**             | Perform bulk operations on table columns (create, update, delete, get, rename multiple columns at once)        |
-| **batch_measure_operations**            | Perform bulk operations on measures (create, update, delete, get, rename, move multiple measures)              |
-| **batch_function_operations**           | Perform bulk operations on DAX functions (create, update, delete, get, rename multiple functions)              |
-| **batch_perspective_operations**        | Bulk manage perspective members (tables, columns, measures, hierarchies)                                       |
-| **batch_object_translation_operations** | Bulk create, update, delete, or get object translations across cultures                                        |
 
 > [!NOTE]
 > This project is in Public Preview and tools may significantly change prior to our General Availability.
@@ -219,7 +213,8 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 
 ## Considerations and limitations
 
-- Connecting to a Semantic Model in a Fabric workspace may not work in your tenant due to the ongoing rollout of the client ID used for authentication. 
+- Connecting to a Semantic Model in a Fabric workspace may not work in your tenant due to the ongoing rollout of the client ID used for authentication.
+- Compatible with Gemini 3 models. There is a known issue with JSON schema handling, which we are actively working to resolve.
 - This MCP server follows the same rules and behaviors as modeling operations performed by External Tools. Refer to the [documentation](https://learn.microsoft.com/power-bi/transform-model/desktop-external-tools#data-modeling-operations) for more information.
 
 ## Security
