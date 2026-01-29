@@ -27,6 +27,10 @@ Capturing the MCP logs with **dotnet-trace**:
 4. Collect the trace
 5. A `.nettrace` file will be output
 
+## Monitor Activity in Fabric
+
+All commands and queries issued by the MCP server are logged under the application name `MCP-PBIModeling`. You can track this activity using the [Fabric Workspace Monitor](https://learn.microsoft.com/en-us/fabric/fundamentals/workspace-monitoring-overview) by filtering events with `ApplicationName == "MCP-PBIModeling"`.
+
 ## Restart MCP Server
 
 1. Open Command Palette (Ctrl+Shift+P)
