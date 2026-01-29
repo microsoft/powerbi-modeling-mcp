@@ -1,5 +1,16 @@
 # Release History
 
+## 0.2.3 (Pre-release)
+
+- Bug fixes
+- Deadlock issue resolved in table_operations GET
+
+## 0.2.2 (Pre-release)
+
+- Bug fixes
+- Support batch operations natively in all tools and removal of batch_* tools
+- Load MCP server on startup
+
 ## 0.1.9
 
 - Bug fixes: connection name issue, null-ref dropping tables and others
