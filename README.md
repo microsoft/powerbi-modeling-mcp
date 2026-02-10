@@ -151,7 +151,8 @@ This MCP Server supports the [Elicitation MCP protocol](https://modelcontextprot
 | **query_group_operations**              | Organize and manage query groups for Power Query expressions                                                   |
 
 > [!NOTE]
-> This project is in Public Preview and tools may significantly change prior to our General Availability.
+> - This project is in Public Preview and tools may significantly change prior to our General Availability.
+> - You can ask AI to explain what tools are available and show examples of how to use them. For example: `Tell me with some examples what I can do with powerbi-modeling-mcp`
 
 ## ▶️ Available prompts
 
