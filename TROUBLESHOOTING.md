@@ -53,6 +53,14 @@ This can be useful for:
 - Finding the MCP binary to use from other MCP client tools
 - Troubleshooting and replacing binaries in development builds
 
+## Forcing Re-Authentication When Connecting to a Semantic Model in the Service
+
+When you connect to a semantic model in a Fabric workspace, you are prompted to authenticate. That authentication is reused for the duration of the current session.
+
+If you need to trigger the authentication prompt again (for example, to switch accounts), you must restart the MCP server. To do this, run: **MCP: List Servers** → **Restart Server**
+
+This will reset the session and prompt you to authenticate again on the next connection.
+
 ## Frequently Asked Questions
 
 **Question:** I’m unable to install the new version of the MCP server in Visual Studio Code. The installation hangs and never completes.
