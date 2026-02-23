@@ -22,9 +22,9 @@ The **Power BI Modeling MCP Server** brings Power BI semantic modeling capabilit
 
 > [!WARNING]  
 > - Use caution when connecting an AI Agent to a semantic model. The underlying LLM may produce unexpected or inaccurate results, which could lead to unintended changes. **Always create a backup of your model before performing any operations.** 
-> - LLMs might unintentionally expose sensitive information from the semantic model, including data or metadata, in logs or responses. **Exercise caution when sharing chat sessions.**
+> - LLMs might unintentionally expose sensitive information from the semantic model, including data or metadata, in logs or responses. **Exercise caution when sharing chat sessions.** See [Data Privacy and LLM Providers](#data-privacy-and-llm-providers).
 > - The **Power BI Modeling MCP server** can only execute modeling operations. It cannot modify other types of Power BI metadata, such as report pages or semantic model elements like diagram layouts.
-> - The AI model you select directly influences the quality and relevance of the responses you receive. For the best results, choose a deep-reasoning model such as `GPT-5` or `Claude Sonnet 4.5`. You can find more details about available models in the [documentation](https://docs.github.com/en/copilot/reference/ai-models/model-comparison).
+> - The AI model you select directly influences the quality and relevance of the responses you receive. For the best results, choose a deep-reasoning model such as `GPT-5` or `Claude Sonnet 4.5`. You can find more details about available models in the [GitHub Copilot AI model comparison](https://docs.github.com/en/copilot/reference/ai-models/model-comparison).
 
 
 ## 📦 Installation
@@ -224,6 +224,14 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 ## Considerations and limitations
 
 - This MCP server follows the same rules and behaviors as modeling operations performed by External Tools. Refer to the [documentation](https://learn.microsoft.com/power-bi/transform-model/desktop-external-tools#data-modeling-operations) for more information.
+
+## Data Privacy and LLM Providers
+
+The MCP server runs **locally** and connects to your semantic model using your existing credentials and permissions — it does not bypass any Power BI security controls. However, data retrieved by the MCP server (metadata, schemas, or query results) is sent to the MCP client (e.g., VS Code) and may then be forwarded to the configured LLM provider as part of the conversation context.
+
+In short: **AI assistance does not expand data access, but it may transmit accessed data to the LLM provider.** Governance efforts should focus on your organization's AI data-handling policies and the LLM provider's terms of service, rather than on Power BI security controls alone.
+
+If you use GitHub Copilot, refer to the [GitHub Copilot model hosting documentation](https://docs.github.com/en/copilot/reference/ai-models/model-hosting) for details on how data is shared with external AI model providers.
 
 ## Security
 
