@@ -43,6 +43,10 @@ The easiest way to install this MCP Server is by using the **Visual Studio Code 
    
 	![vscode-mcp-tools](docs/img/vscode-mcp-tools.png)
 
+Note: If you do not see powerbi-modeling-mcp in the available tool list, verify that the "MCP servers in Copilot" option is enabled in Copilot settings on GitHub.com. For enterprise accounts, this option is disabled by default and must be enabled by an administrator.
+
+![mcp-servers-in-copilot-enable](docs/img/mcp-servers-in-copilot-enable.png)
+
 ### Manual install
 
 This MCP Server can also be configured across other IDEs, CLIs, and MCP clients:
