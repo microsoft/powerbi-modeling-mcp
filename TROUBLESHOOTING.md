@@ -27,6 +27,12 @@ Capturing the MCP logs with **dotnet-trace**:
 4. Collect the trace
 5. A `.nettrace` file will be output
 
+## Monitor MCP Activity in Fabric
+
+All commands and queries issued by the MCP server are logged under the application name `MCP-PBIModeling`. You can track this activity using the [Fabric Workspace Monitor](https://learn.microsoft.com/en-us/fabric/fundamentals/workspace-monitoring-overview) by filtering events with `ApplicationName == "MCP-PBIModeling"`.
+
+![workspace-monitoring-kql-query](docs/img/workspace-monitoring-kql-query.png)
+
 ## Restart MCP Server
 
 1. Open Command Palette (Ctrl+Shift+P)
@@ -46,6 +52,14 @@ This can be useful for:
 - Checking platform-specific binaries
 - Finding the MCP binary to use from other MCP client tools
 - Troubleshooting and replacing binaries in development builds
+
+## Forcing Re-Authentication When Connecting to a Semantic Model in the Service
+
+When you connect to a semantic model in a Fabric workspace, you are prompted to authenticate. That authentication is reused for the duration of the current session.
+
+If you need to trigger the authentication prompt again (for example, to switch accounts), you must restart the MCP server. To do this, run: **MCP: List Servers** → **Restart Server**
+
+This will reset the session and prompt you to authenticate again on the next connection.
 
 ## Frequently Asked Questions
 
