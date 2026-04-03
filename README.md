@@ -43,36 +43,56 @@ The easiest way to install this MCP Server is by using the **Visual Studio Code 
    
 	![vscode-mcp-tools](docs/img/vscode-mcp-tools.png)
 
-Note: If you do not see powerbi-modeling-mcp in the available tool list, verify that the "MCP servers in Copilot" option is enabled in Copilot settings on GitHub.com. For enterprise accounts, this option is disabled by default and must be enabled by an administrator.
+> [!NOTE] 
+> If you do not see **powerbi-modeling-mcp** in the available tool list, verify that the **MCP servers in Copilot** option is enabled in Copilot settings on GitHub.com. For enterprise accounts, this option is disabled by default and must be enabled by an administrator.
+> 
+> ![mcp-servers-in-copilot-enable](docs/img/mcp-servers-in-copilot-enable.png)
 
-![mcp-servers-in-copilot-enable](docs/img/mcp-servers-in-copilot-enable.png)
+### Manual
 
-### Manual install
+This MCP Server can also be configured across other IDEs, CLIs, and MCP clients.
 
-This MCP Server can also be configured across other IDEs, CLIs, and MCP clients:
+**Node Package Executor (NPX) (requires [Node.js](https://nodejs.org/en))**
+
+Add the JSON configuration to your MCP client. Node will automatically download the MCP server from the [@microsoft/powerbi-modeling-mcp npm package](https://www.npmjs.com/package/@microsoft/powerbi-modeling-mcp).
+
+
+```json
+{
+	"powerbi-modeling-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@microsoft/powerbi-modeling-mcp@latest",
+				"--start"				
+			]
+		}	
+}
+```
+
+**Manual download**
 
 1. Download the VSIX package for the version you want using the URL below:
    - Template: `https://marketplace.visualstudio.com/_apis/public/gallery/publishers/analysis-services/vsextensions/powerbi-modeling-mcp/[version]/vspackage?targetPlatform=[platform]`
    - Example (version `0.1.9`, platform `win32-x64`): `https://marketplace.visualstudio.com/_apis/public/gallery/publishers/analysis-services/vsextensions/powerbi-modeling-mcp/0.1.9/vspackage?targetPlatform=win32-x64`
-3. Rename the downloaded `.visx` file to `.zip`
-4. Unzip the contents to a folder of your choice, for example: `C:\MCPServers\PowerBIModelingMCP`
-5. Run `\extension\server\powerbi-modeling-mcp.exe`
-6. Copy the MCP JSON registration from the console and register it in your preferred MCP client tool.
+2. Rename the downloaded `.visx` file to `.zip`
+3. Unzip the contents to a folder of your choice, for example: `C:\MCPServers\PowerBIModelingMCP`
+4. Run `\extension\server\powerbi-modeling-mcp.exe`
+5. Copy the MCP JSON registration from the console and register it in your preferred MCP client tool.
 
 Example of config that should work in most MCP clients:
 
 ```json
 {
-"servers": {
-		"powerbi-modeling-mcp": {
-			"type": "stdio",
-			"command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
-			"args": [
-				"--start"                
-			],
-			"env": {}			
-		}
-	}
+	"powerbi-modeling-mcp": {
+		"type": "stdio",
+		"command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
+		"args": [
+			"--start"                
+		],
+		"env": {}			
+	}	
 }
 ```
 
@@ -180,18 +200,23 @@ This MCP server includes built-in prompts to help you get started. In **Visual S
 
 The MCP server supports several command line options and environment variables:
 
-| Command line option  | Default | Description                                                                                                                                                                                                               |
-| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--start`            |         | Starts the MCP server; necessary for server registration with MCP client.                                                                                                                                                 |
-| `--readwrite`        | Yes     | Enabled by default, enables write operations with confirmation prompt before applying an edit to your semantic model (once per database).                                                                                 |
-| `--readonly`         |         | Safe mode, prevents any write operations to your semantic model                                                                                                                                                           |
-| `--skipconfirmation` |         | Automatically approves all write operations without confirmation prompts. Only use skip confirmation mode when you're confident about the operations being performed and have appropriate backups of your semantic model. |
-| `--compatibility`    | PowerBI | By default, it is optimized for Power BI semantic models. Change the setting to `Full` if you want to run this MCP server against Analysis Services databases.                                                            |
+| Command line option  | Default     | Description                                                                                                                                                                                                               |
+| -------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--start`            |             | Starts the MCP server; necessary for server registration with MCP client.                                                                                                                                                 |
+| `--readwrite`        | Yes         | Enabled by default, enables write operations with confirmation prompt before applying an edit to your semantic model (once per database).                                                                                 |
+| `--readonly`         |             | Safe mode, prevents any write operations to your semantic model                                                                                                                                                           |
+| `--skipconfirmation` |             | Automatically approves all write operations without confirmation prompts. Only use skip confirmation mode when you're confident about the operations being performed and have appropriate backups of your semantic model. |
+| `--compatibility`    | PowerBI     | By default, it is optimized for Power BI semantic models. Change the setting to `Full` if you want to run this MCP server against Analysis Services databases.                                                            |
+| `--authmode`         | interactive | Set authentication mode: `serviceprincipal` or `interactive`.                                                                                                                                                                 |
 
-| Environment variable name  | Default | Description                                                                                                                                                                                                               |
-| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PBI_MODELING_MCP_ACCESS_TOKEN`            |         | When configured, the MCP Server uses the specified access token instead of prompting for authentication when connecting to a semantic model in a Fabric workspace. This is useful in scenarios where the application handles authentication itself.
-                                                                                                                                                |
+| Environment variable name           | Default | Description                                                                                                                                                                                                                                         |
+| ----------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AZURE_CLIENT_ID`                   |         | The application (client) ID of the Microsoft Entra service principal. Required when `--authmode serviceprincipal`.                                                                                                                                  |
+| `AZURE_TENANT_ID`                   |         | The Microsoft Entra tenant (directory) ID. Required when `--authmode serviceprincipal`.                                                                                                                                                             |
+| `AZURE_CLIENT_SECRET`               |         | The client secret for the service principal. Required when `--authmode serviceprincipal` and using secret-based authentication.                                                                                                                     |
+| `AZURE_CLIENT_CERTIFICATE_PATH`     |         | Path to a PFX/PEM certificate file for the service principal. Required when `--authmode serviceprincipal` and using certificate-based authentication instead of a client secret.                                                                    |
+| `AZURE_CLIENT_CERTIFICATE_PASSWORD` |         | Password for the certificate file, if the certificate is password-protected. Only used when `--authmode serviceprincipal` with certificate-based authentication.                                                                                    |
+| `PBI_MODELING_MCP_ACCESS_TOKEN`     |         | When configured, the MCP Server uses the specified access token instead of prompting for authentication when connecting to a semantic model in a Fabric workspace. This is useful in scenarios where the application handles authentication itself. |
 
 **For Visual Studio Code**, you can set the command line options and environment variables in the **User Settings**:
 
