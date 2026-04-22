@@ -244,6 +244,56 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 }
 ```
 
+## HTTP Transport
+
+The MCP server supports an optional HTTP transport mode for network-accessible deployments (e.g., behind a reverse proxy, in a container, or as a shared service).
+
+### Quick Start
+
+```bash
+# Start with HTTP transport on default port (5000, localhost only)
+powerbi-modeling-mcp --http
+
+# Custom port
+powerbi-modeling-mcp --http --port=8080
+
+# Expose to network (use with caution — see Security below)
+powerbi-modeling-mcp --http --port=8080 --host=0.0.0.0
+
+# Combine with other options
+powerbi-modeling-mcp --http --readonly --authmode=serviceprincipal
+```
+
+### Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `/mcp` | MCP Streamable HTTP transport (also supports legacy SSE at `/sse` and `/message`) |
+| `/healthz` | Health check endpoint (returns `200 OK`) |
+
+### MCP Client Configuration (HTTP mode)
+
+```json
+{
+  "servers": {
+    "powerbi-modeling-mcp": {
+      "url": "http://localhost:5000/mcp"
+    }
+  }
+}
+```
+
+### Security Considerations
+
+> **⚠️ Important:** The HTTP transport does **not** include any authentication or authorization on the MCP endpoint itself. Anyone with network access to the server can invoke tools using whatever credentials the server was started with.
+
+- **Default bind**: `127.0.0.1` (localhost only) — the server is not exposed to the network by default
+- **No MCP-level auth**: The `/mcp` endpoint has no built-in authentication. When using `--authmode=serviceprincipal`, any client that can reach the HTTP port will execute operations with the permissions of that service principal
+- **TLS**: Not built-in. Use a reverse proxy (nginx, Azure App Gateway, etc.) for TLS termination
+- **Network isolation**: When exposing to a network (`--host=0.0.0.0`), deploy behind a firewall, VPN, or reverse proxy that restricts access to authorized clients only
+- **Read-only mode**: Use `--readonly` to limit exposure when write access is not needed
+- **Session isolation**: Each MCP client session has its own isolated connection pool — clients cannot see or modify each other's connections
+
 ## 💬 Feedback and Support
 
 - Check the [Troubleshooting guide](TROUBLESHOOTING.md) to diagnose and resolve common issues.
