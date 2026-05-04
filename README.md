@@ -262,6 +262,9 @@ powerbi-modeling-mcp --http --port=8080 --host=0.0.0.0
 
 # Combine with other options
 powerbi-modeling-mcp --http --readonly --authmode=serviceprincipal
+
+# On-Behalf-Of authentication (multi-user, per-user Power BI permissions)
+powerbi-modeling-mcp --http --authmode=onbehalfof --port=5000
 ```
 
 ### Endpoints
@@ -270,6 +273,7 @@ powerbi-modeling-mcp --http --readonly --authmode=serviceprincipal
 |----------|-------------|
 | `/mcp` | MCP Streamable HTTP transport (also supports legacy SSE at `/sse` and `/message`) |
 | `/healthz` | Health check endpoint (returns `200 OK`) |
+| `/.well-known/oauth-protected-resource` | Protected Resource Metadata (PRM) for OAuth discovery (OBO mode only) |
 
 ### MCP Client Configuration (HTTP mode)
 
@@ -283,12 +287,61 @@ powerbi-modeling-mcp --http --readonly --authmode=serviceprincipal
 }
 ```
 
+### Authentication Modes
+
+| Mode | Flag | Description |
+|------|------|-------------|
+| Interactive | `--authmode=interactive` (default) | Browser-based login. Single user identity shared across all sessions. |
+| Service Principal | `--authmode=serviceprincipal` | Uses `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`. Single identity for all sessions. |
+| On-Behalf-Of | `--authmode=onbehalfof` | Per-user delegated auth via OAuth 2.0 OBO flow. Each session uses the connecting user's Power BI permissions. Requires `--http`. |
+
+### On-Behalf-Of (OBO) Authentication
+
+OBO mode enables multi-user deployments where each user's Power BI permissions are preserved. This is designed for shared infrastructure scenarios such as Azure App Service hosting.
+
+#### How it works
+
+1. Client connects to `/mcp` → server returns **401** with `WWW-Authenticate` header
+2. Client discovers auth requirements via the PRM endpoint (`/.well-known/oauth-protected-resource`)
+3. Client acquires a user token scoped to the server's app registration and retries with `Authorization: Bearer <token>`
+4. Server exchanges the user token for a Power BI XMLA token using the MSAL OBO flow
+5. All operations execute with the authenticated user's Power BI permissions
+
+#### Required environment variables
+
+```bash
+export AZURE_CLIENT_ID=<app-registration-client-id>
+export AZURE_TENANT_ID=<tenant-id>
+
+# Option 1: Client secret
+export AZURE_CLIENT_SECRET=<app-registration-client-secret>
+
+# Option 2: Certificate (preferred — more secure, no secret rotation needed)
+export AZURE_CLIENT_CERTIFICATE_PATH=/path/to/certificate.pfx
+export AZURE_CLIENT_CERTIFICATE_PASSWORD=<optional-certificate-password>
+```
+
+> If both `AZURE_CLIENT_CERTIFICATE_PATH` and `AZURE_CLIENT_SECRET` are set, the certificate takes precedence.
+
+#### Entra ID app registration setup
+
+1. **Expose an API**: Set Application ID URI to `api://<client-id>`, add a `user_impersonation` delegated scope
+2. **API Permissions** (Power BI Service → Delegated):
+   - `Dataset.ReadWrite.All`
+   - `Workspace.ReadWrite.All`
+   - `SemanticModel.ReadWrite.All`
+   - `Tenant.ReadWrite.All`
+3. **Grant admin consent** for all permissions in the tenant
+4. **Authorized client applications**: Pre-authorize clients that will connect:
+   - VS Code: `aebc6443-996d-45c2-90f0-388ff96faa56`
+   - Azure CLI: `04b07795-8ddb-461a-bbee-02f9e1bf7b46`
+5. **Credential**: Create a client secret under Certificates & secrets, or upload a certificate (public key) and use the corresponding PFX file as `AZURE_CLIENT_CERTIFICATE_PATH`
+
 ### Security Considerations
 
-> **⚠️ Important:** The HTTP transport does **not** include any authentication or authorization on the MCP endpoint itself. Anyone with network access to the server can invoke tools using whatever credentials the server was started with.
-
 - **Default bind**: `127.0.0.1` (localhost only) — the server is not exposed to the network by default
-- **No MCP-level auth**: The `/mcp` endpoint has no built-in authentication. When using `--authmode=serviceprincipal`, any client that can reach the HTTP port will execute operations with the permissions of that service principal
+- **OBO mode**: Provides per-user authentication and permission isolation. Each MCP session authenticates independently and can only access Power BI resources the user is authorized for
+- **Non-OBO modes**: The `/mcp` endpoint has no built-in authentication. When using `--authmode=serviceprincipal`, any client that can reach the HTTP port will execute operations with the permissions of that service principal
 - **TLS**: Not built-in. Use a reverse proxy (nginx, Azure App Gateway, etc.) for TLS termination
 - **Network isolation**: When exposing to a network (`--host=0.0.0.0`), deploy behind a firewall, VPN, or reverse proxy that restricts access to authorized clients only
 - **Read-only mode**: Use `--readonly` to limit exposure when write access is not needed
