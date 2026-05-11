@@ -34,7 +34,7 @@ The easiest way to install this MCP Server is by using the **Visual Studio Code 
 ### Visual Studio Code (Recommended)
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/download).
-2. Install the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
+2. Install the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
 3. Install the [**Power BI Modeling MCP** Visual Studio Code extension](https://aka.ms/powerbi-modeling-mcp-vscode).
    
 	![vs code install](docs/img/vscode-extension-install.png)
@@ -211,11 +211,11 @@ The MCP server supports several command line options and environment variables:
 
 | Environment variable name           | Default | Description                                                                                                                                                                                                                                         |
 | ----------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AZURE_CLIENT_ID`                   |         | The application (client) ID of the Microsoft Entra service principal. Required when `--authmode serviceprincipal`.                                                                                                                                  |
-| `AZURE_TENANT_ID`                   |         | The Microsoft Entra tenant (directory) ID. Required when `--authmode serviceprincipal`.                                                                                                                                                             |
-| `AZURE_CLIENT_SECRET`               |         | The client secret for the service principal. Required when `--authmode serviceprincipal` and using secret-based authentication.                                                                                                                     |
-| `AZURE_CLIENT_CERTIFICATE_PATH`     |         | Path to a PFX/PEM certificate file for the service principal. Required when `--authmode serviceprincipal` and using certificate-based authentication instead of a client secret.                                                                    |
-| `AZURE_CLIENT_CERTIFICATE_PASSWORD` |         | Password for the certificate file, if the certificate is password-protected. Only used when `--authmode serviceprincipal` with certificate-based authentication.                                                                                    |
+| `AZURE_CLIENT_ID`                   |         | The application (client) ID of the Microsoft Entra service principal. Required when `--authmode=serviceprincipal`.                                                                                                                                  |
+| `AZURE_TENANT_ID`                   |         | The Microsoft Entra tenant (directory) ID. Required when `--authmode=serviceprincipal`.                                                                                                                                                             |
+| `AZURE_CLIENT_SECRET`               |         | The client secret for the service principal. Required when `--authmode=serviceprincipal` and using secret-based authentication.                                                                                                                     |
+| `AZURE_CLIENT_CERTIFICATE_PATH`     |         | Path to a PFX/PEM certificate file for the service principal. Required when `--authmode=serviceprincipal` and using certificate-based authentication instead of a client secret.                                                                    |
+| `AZURE_CLIENT_CERTIFICATE_PASSWORD` |         | Password for the certificate file, if the certificate is password-protected. Only used when `--authmode=serviceprincipal` with certificate-based authentication.                                                                                    |
 | `PBI_MODELING_MCP_ACCESS_TOKEN`     |         | When configured, the MCP Server uses the specified access token instead of prompting for authentication when connecting to a semantic model in a Fabric workspace. This is useful in scenarios where the application handles authentication itself. |
 
 **For Visual Studio Code**, you can set the command line options and environment variables in the **User Settings**:
@@ -234,6 +234,7 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 			"args": [
 				"--start"
                 , "--skipconfirmation"
+				, "--authmode=interactive"    				
 			],
 			"env": {
 				"PBI_MODELING_MCP_ACCESS_TOKEN": "[ACCESS_TOKEN]"
