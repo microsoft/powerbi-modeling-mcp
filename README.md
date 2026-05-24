@@ -96,6 +96,34 @@ Example of config that should work in most MCP clients:
 }
 ```
 
+**Using a manual download from WSL**
+
+If your MCP client runs inside WSL and you need to use the manually downloaded
+Windows executable, extract the VSIX to a Windows path such as
+`C:\MCPServers\PowerBIModelingMCP` and start the executable from a Windows
+working directory. A small wrapper script keeps the process from inheriting a
+Linux working directory such as `/home/user`:
+
+```bash
+#!/bin/bash
+cd /mnt/c
+exec /mnt/c/MCPServers/PowerBIModelingMCP/extension/server/powerbi-modeling-mcp.exe --start
+```
+
+Register the wrapper script as the MCP command instead of registering the
+`.exe` directly:
+
+```json
+{
+	"powerbi-modeling-mcp": {
+		"type": "stdio",
+		"command": "/path/to/powerbi-mcp-wrapper.sh",
+		"args": [],
+		"env": {}
+	}
+}
+```
+
 ## 🚀 Get started
 
 **First, you must connect to a Power BI semantic model**, which can reside in Power BI Desktop, Fabric workspace or in Power BI Project (PBIP) files.
