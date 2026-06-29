@@ -160,7 +160,7 @@ This MCP Server supports the [Elicitation MCP protocol](https://modelcontextprot
 | **column_operations**                   | Manage individual table columns (create, update, delete, get, list, rename)                                    |
 | **measure_operations**                  | Manage individual DAX measures (create, update, delete, get, list, rename, move between tables)                |
 | **relationship_operations**             | Handle relationships between tables (create, update, delete, activate/deactivate, find)                        |
-| **dax_query_operations**                | Execute, validate, and generate DAX queries against the model                                                  |
+| **dax_query_operations**                | Execute and validate DAX queries against the model                                                  |
 | **trace_operations**                    | Perform trace operations on semantic model to capture and analyze Analysis Services events.                    |
 | **partition_operations**                | Manage table partitions (create, update, delete, refresh specific partitions)                                  |
 | **user_hierarchy_operations**           | Work with user-defined hierarchies (create, update, delete levels, reorder)                                    |
