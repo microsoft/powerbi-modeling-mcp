@@ -254,6 +254,11 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 ## Considerations and limitations
 
 - This MCP server follows the same rules and behaviors as modeling operations performed by External Tools. Refer to the [documentation](https://learn.microsoft.com/power-bi/transform-model/desktop-external-tools#data-modeling-operations) for more information.
+- You must have **Write** permission on the semantic model. For more information, see [Semantic model permissions](https://learn.microsoft.com/power-bi/connect-data/service-datasets-permissions).
+
+## License
+
+By installing this software, you accept the license agreement. See [EULA.txt](EULA.txt) within the repository for legal terms.
 
 ## Data Privacy and LLM Providers
 
