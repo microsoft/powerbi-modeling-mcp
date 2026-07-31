@@ -160,7 +160,7 @@ This MCP Server supports the [Elicitation MCP protocol](https://modelcontextprot
 | **column_operations**                   | Manage individual table columns (create, update, delete, get, list, rename)                                    |
 | **measure_operations**                  | Manage individual DAX measures (create, update, delete, get, list, rename, move between tables)                |
 | **relationship_operations**             | Handle relationships between tables (create, update, delete, activate/deactivate, find)                        |
-| **dax_query_operations**                | Execute, validate, and generate DAX queries against the model                                                  |
+| **dax_query_operations**                | Execute and validate DAX queries against the model                                                  |
 | **trace_operations**                    | Perform trace operations on semantic model to capture and analyze Analysis Services events.                    |
 | **partition_operations**                | Manage table partitions (create, update, delete, refresh specific partitions)                                  |
 | **user_hierarchy_operations**           | Work with user-defined hierarchies (create, update, delete levels, reorder)                                    |
@@ -211,8 +211,8 @@ The MCP server supports several command line options and environment variables:
 
 | Environment variable name           | Default | Description                                                                                                                                                                                                                                         |
 | ----------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AZURE_CLIENT_ID`                   |         | The application (client) ID of the Microsoft Entra service principal. Required when `--authmode=serviceprincipal`.                                                                                                                                  |
-| `AZURE_TENANT_ID`                   |         | The Microsoft Entra tenant (directory) ID. Required when `--authmode=serviceprincipal`.                                                                                                                                                             |
+| `AZURE_CLIENT_ID`                   |         | The application (client) ID of the Microsoft Entra service principal. Required when `--authmode=serviceprincipal`.                                                                                                                                 |
+| `AZURE_TENANT_ID`                   |         | The Microsoft Entra tenant (directory) ID. Required when `--authmode=serviceprincipal` or force a specific tenant with interactive authentication.                                                                                                                                                              |
 | `AZURE_CLIENT_SECRET`               |         | The client secret for the service principal. Required when `--authmode=serviceprincipal` and using secret-based authentication.                                                                                                                     |
 | `AZURE_CLIENT_CERTIFICATE_PATH`     |         | Path to a PFX/PEM certificate file for the service principal. Required when `--authmode=serviceprincipal` and using certificate-based authentication instead of a client secret.                                                                    |
 | `AZURE_CLIENT_CERTIFICATE_PASSWORD` |         | Password for the certificate file, if the certificate is password-protected. Only used when `--authmode=serviceprincipal` with certificate-based authentication.                                                                                    |
@@ -254,6 +254,11 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 ## Considerations and limitations
 
 - This MCP server follows the same rules and behaviors as modeling operations performed by External Tools. Refer to the [documentation](https://learn.microsoft.com/power-bi/transform-model/desktop-external-tools#data-modeling-operations) for more information.
+- You must have **Write** permission on the semantic model. For more information, see [Semantic model permissions](https://learn.microsoft.com/power-bi/connect-data/service-datasets-permissions).
+
+## License
+
+By installing this software, you accept the license agreement. See [EULA.txt](EULA.txt) within the repository for legal terms.
 
 ## Data Privacy and LLM Providers
 
