@@ -1,0 +1,10 @@
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\bin\Debug\net8.0\PowerBIModelingMCP.Library.deps.json
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\bin\Debug\net8.0\PowerBIModelingMCP.Library.dll
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\bin\Debug\net8.0\PowerBIModelingMCP.Library.pdb
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\obj\Debug\net8.0\PowerBIModelingMCP.Library.csproj.AssemblyReference.cache
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\obj\Debug\net8.0\PowerBIModelingMCP.Library.GeneratedMSBuildEditorConfig.editorconfig
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\obj\Debug\net8.0\PowerBIModelingMCP.Library.csproj.CoreCompileInputs.cache
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\obj\Debug\net8.0\PowerBIModelingMCP.Library.dll
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\obj\Debug\net8.0\refint\PowerBIModelingMCP.Library.dll
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\obj\Debug\net8.0\PowerBIModelingMCP.Library.pdb
+D:\ConsultorSalud\ConsultorSaludMCP\src\PowerBIModelingMCP.Library\obj\Debug\net8.0\ref\PowerBIModelingMCP.Library.dll

@@ -1,0 +1,495 @@
+tools:
+  calculation_group_operations:
+    description: >-
+      Perform operations on semantic model calculation groups and calculation items. Supports batch operations for creating, updating, deleting, getting, and renaming multiple groups and items at once. Supported operations: Help, CreateGroup, UpdateGroup, DeleteGroup, GetGroup, ListGroups, RenameGroup, CreateItems, UpdateItems, DeleteItems, GetItems, ListItems, RenameItems, ReorderItems, ExportTMDL. Use the Operation parameter to specify which operation to perform.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, CreateGroup, UpdateGroup, DeleteGroup, GetGroup, ListGroups, RenameGroup, CreateItems, UpdateItems, DeleteItems, GetItems, ListItems, RenameItems, ReorderItems, ExportTMDL
+      GroupDefinitions: >-
+        For CreateGroup and UpdateGroup operations.
+      GroupReferences: >-
+        For DeleteGroup and GetGroup operations.
+      RenameGroupDefinitions: >-
+        For RenameGroup operation.
+      ItemDefinitions: >-
+        For CreateItems and UpdateItems operations.
+      ItemReferences: >-
+        For DeleteItems and GetItems operations.
+      RenameItemsDefinitions: >-
+        For RenameItems operation.
+      ReorderDefinitions: >-
+        For ReorderItems operation.
+      ItemFilter: >-
+        For ListItems operation. CalculationGroupName is a required property of ItemFilter.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  calendar_operations:
+    description: >-
+      Perform operations on semantic model calendars and their column groups. All operations support both single and multiple items via list properties. Supported operations: Help, Create, Update, Delete, Get, List, Rename, ExportTMDL, CreateColumnGroups, UpdateColumnGroups, DeleteColumnGroups, GetColumnGroups, ListColumnGroups. Use the Operation parameter to specify which operation to perform. For Create, Update, Delete, Get, and Rename operations, provide a list of definitions or references even for single items. List and ExportTMDL work with individual items. Calendar objects define logical calendars as part of DAX Time-Intelligence support and are only supported when compatibility level is at least 1701. Batch options allow control over transaction behavior and error handling.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List, Rename, ExportTMDL, CreateColumnGroups, UpdateColumnGroups, DeleteColumnGroups, GetColumnGroups, ListColumnGroups
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete and Get operations.
+      RenameDefinitions: >-
+        For Rename operation.
+      Filter: >-
+        For List operation.
+      ColumnGroupFilter: >-
+        For ListColumnGroups operation. Contains the nested CalendarName (required) and TableName (optional). Example: { "CalendarName": "FiscalCalendar" }. Note: CalendarName lives inside this ColumnGroupFilter, not at the top level of the request.
+      ColumnGroupDefinitions: >-
+        For CreateColumnGroups, UpdateColumnGroups, DeleteColumnGroups, and GetColumnGroups operations.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  column_operations:
+    description: >-
+      Perform operations on semantic model columns. All operations support both single and multiple items via list properties. Supported operations: Help, Create, Update, Delete, Get, List, Rename, ExportTMDL. Use the Operation parameter to specify which operation to perform. For Create and Update use Definitions, for Delete, Get, List, and ExportTMDL use References, and for Rename use RenameDefinitions. Batch options allow control over transaction behavior and error handling.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List, Rename, ExportTMDL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete, Get, and ExportTMDL operations.
+      Filter: >-
+        For List operation.
+      ShouldCascadeDelete: >-
+        Whether dependent objects should be deleted when deleting a column. Default: true.
+      RenameDefinitions: >-
+        For Rename operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  connection_operations:
+    description: >-
+      Perform operations on Microsoft tabular semantic model data source connections (PowerBI Desktop, Analysis Services, Fabric). Supported operations: Help, Connect, ConnectFabric, ConnectFolder, ConnectBimFile, Disconnect, GetConnection, ListConnections, ListLocalInstances. Use the Operation parameter to specify which operation to perform.
+    request:
+      Operation: >-
+        Help, Connect, ConnectFabric, ConnectFolder, ConnectBimFile, Disconnect, GetConnection, ListConnections, ListLocalInstances
+      ConnectionName: >-
+        Required for GetConnection. Optional for Disconnect (disconnects all if omitted). Forbidden for Connect, ConnectFabric, ConnectFolder, ConnectBimFile (auto-generated)
+      ConnectionString: >-
+        Required for Connect. Supports PowerBI Desktop, XML/A, Analysis Services
+      DataSource: >-
+        e.g. localhost:<port>, powerbi://api.powerbi.com/v1.0/myorg/workspace, server.domain.com
+      InitialCatalog: >-
+        Dataset or database name
+      WorkspaceName: >-
+        Required for ConnectFabric, exact match
+      SemanticModelName: >-
+        Required for ConnectFabric, exact match
+      TenantName: >-
+        For ConnectFabric B2B/guest scenarios. Default: 'myorg'
+      ClearCredential: >-
+        Forces fresh authentication
+      FolderPath: >-
+        For ConnectFolder. Must contain database.tmdl or have 'definition' subfolder
+      BimFilePath: >-
+        For ConnectBimFile. Path to .bim file
+  culture_operations:
+    description: >-
+      Perform operations on semantic model cultures. All operations support both single and multiple items via list properties. Supported operations: Help, Create, Update, Delete, Get, List, Rename, GetValidNames, GetValidDetails, GetDetailsByName, GetDetailsByLCID, ExportTMDL. For Create, Update, Delete, Get, and Rename operations, provide a list of definitions or references even for single items. List, GetValidNames, GetValidDetails, GetDetailsByName, GetDetailsByLCID, and ExportTMDL work with individual items. Batch options allow control over transaction behavior and error handling.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List, Rename, GetValidNames, GetValidDetails, GetDetailsByName, GetDetailsByLCID, ExportTMDL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete, Get, and ExportTMDL operations.
+      RenameDefinitions: >-
+        For Rename operation.
+      IncludeNeutralCultures: >-
+        For GetValidNames operation. Default: true.
+      IncludeUserCustomCultures: >-
+        For GetValidNames operation. Default: false.
+      LCID: >-
+        For GetDetailsByLCID operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  data_source_operations:
+    description: >-
+      Perform operations on SSAS data sources in semantic models. All CRUD operations support both single and multiple items via list properties. Supported operations: Help, Create, Update, Delete, Get, List, Rename, Test, ExportTMDL. For Create and Update operations, use Definitions. For Delete, Get, Test, and ExportTMDL operations, use References. Batch options allow control over transaction behavior and error handling. Note: Power BI uses named expressions instead of data sources.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List, Rename, Test, ExportTMDL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete, Get, Test, and ExportTMDL operations.
+      RenameDefinitions: >-
+        For Rename operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  database_operations:
+    description: >-
+      Perform operations on semantic models hosted in Power BI Desktop or Fabric service. Supported operations: Help, Create, Update, List, ImportFromTmdlFolder, ExportToTmdlFolder, ImportFromBimFile, ExportToBimFile, ExportTMDL (YAML-like format), ExportTMSL (JSON script format), DeployToFabric. Use the Operation parameter to specify which operation to perform.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted. For ImportFromTmdlFolder, ImportFromBimFile, or Create, names the new offline connection and is auto-generated if omitted.
+      Operation: >-
+        Help, List, Update, ImportFromTmdlFolder, ExportToTmdlFolder, ImportFromBimFile, ExportToBimFile, DeployToFabric, Create, ExportTMDL, ExportTMSL
+      UpdateDefinition: >-
+        For Update operation.
+      CreateDefinition: >-
+        For Create operation.
+      TmdlFolderPath: >-
+        Required for ImportFromTmdlFolder and ExportToTmdlFolder operations.
+      BimFilePath: >-
+        Required for ImportFromBimFile and ExportToBimFile operations.
+      DeployToFabricRequest: >-
+        For DeployToFabric operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      TmslExportOptions: >-
+        For ExportTMSL operation.
+  dax_query_operations:
+    description: >-
+      Perform DAX query operations on semantic models. Supported operations: Help, Execute, Validate, ClearCache. Use the Operation parameter to specify which operation to perform.
+    request:
+      Operation: >-
+        Help, Execute, Validate, ClearCache
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Query: >-
+        DAX query text for Execute and Validate operations.
+      TimeoutSeconds: >-
+        Default: 200 seconds for Execute, 10 seconds for Validate.
+      MaxRows: >-
+        Execute only. Maximum number of rows to return.
+      GetExecutionMetrics: >-
+        Execute only. Captures query execution metrics when true. Default: false.
+      ExecutionMetricsOnly: >-
+        When true with GetExecutionMetrics, omits row data but reads all rows for accurate timing. Default: false.
+      Impersonation: >-
+        Execute only. Optional impersonation options for query execution.
+      ResultMode: >-
+        Execute only. Selects how results are returned: 'Resource' (default, embedded resource) or 'Inline'(JSON text) — best for clients that don't support MCP resources.
+  function_operations:
+    description: >-
+      Perform operations on semantic model functions. Supported operations: Help, Create, Update, Delete, Get, List, Rename, ExportTMDL. Use the Operation parameter to specify which operation to perform. Use Definitions for Create and Update operations, and References for Delete, Get, and ExportTMDL operations.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List, Rename, ExportTMDL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete, Get, and ExportTMDL operations.
+      RenameDefinitions: >-
+        For Rename operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  measure_operations:
+    description: >-
+      Perform operations on semantic model measures. All operations support both single and multiple items via list properties. Supported operations: Help, Create, Update, Delete, Get, List, Rename, Move, ExportTMDL. For Create and Update use Definitions. For Delete, Get, List, and ExportTMDL use References. For Rename use RenameDefinitions. For Move use MoveDefinitions. To move measures between tables, use the Move operation. Update operation cannot change table assignment; use Move instead. Batch options allow control over transaction behavior and error handling.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List, Rename, Move, ExportTMDL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete, Get, and ExportTMDL operations.
+      Filter: >-
+        For List operation.
+      ShouldCascadeDelete: >-
+        For Delete operation. Default: true.
+      RenameDefinitions: >-
+        For Rename operation.
+      MoveDefinitions: >-
+        For Move operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  model_operations:
+    description: >-
+      Perform operations on semantic model. Supported operations: Help, Get, Create, Update, RefreshWithXMLA, RefreshWithAPI, CheckStatusOfRefreshWithAPI, CancelRefreshWithAPI, GetStats, Rename, ExportTMDL. Use the Operation parameter to specify which operation to perform. ExportTMDL exports the model to TMDL format.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Get, Create, Update, RefreshWithXMLA, RefreshWithAPI, CheckStatusOfRefreshWithAPI, CancelRefreshWithAPI, GetStats, Rename, ExportTMDL.
+      ModelName: >-
+        Defaults to current model.
+      NewName: >-
+        For Rename operation.
+      RefreshType: >-
+        For RefreshWithXMLA and RefreshWithAPI operations: Automatic, Full, ClearValues, Calculate, DataOnly, Defragment.
+      TableName: >-
+        For RefreshWithAPI operation: optional table name to refresh a specific table.
+      RequestId: >-
+        For CheckStatusOfRefreshWithAPI operation: the request ID returned by RefreshWithAPI.
+      Definition: >-
+        For Create and Update operations.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+  named_expression_operations:
+    description: >-
+      Perform operations on semantic model named expressions and Power Query parameters. All operations support both single and multiple items via list properties. Supported operations: Help, Create, Update, Delete, Get, List, Rename, CreateParameter, UpdateParameter, ExportTMDL. For Create, Update, CreateParameter, and UpdateParameter operations, provide Definitions. For Delete, Get, and ExportTMDL operations, provide References. For Rename, provide RenameDefinitions. Batch options allow control over transaction behavior and error handling.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List, Rename, CreateParameter, UpdateParameter, ExportTMDL
+      Definitions: >-
+        For Create, Update, CreateParameter, and UpdateParameter operations.
+      References: >-
+        For Delete, Get, and ExportTMDL operations.
+      RenameDefinitions: >-
+        For Rename operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  object_translation_operations:
+    description: >-
+      Perform operations on object translations within semantic model cultures. Supported operations: Help, Create, Update, Delete, Get, List. Use the Operation parameter to specify which operation to perform. Supported object types: Model, Table, Measure, Column, Hierarchy, Level, KPI.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete and Get operations.
+      Filter: >-
+        For List operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  partition_operations:
+    description: >-
+      Perform operations on semantic model partitions. Supports batch operations for Create, Update, Delete, Refresh, Rename, and Get. Use the Operation parameter to specify: Help, List, Get, Create, Update, Delete, RefreshWithXMLA, RefreshWithAPI, CheckStatusOfRefreshWithAPI, CancelRefreshWithAPI, Rename, ExportTMDL, ExportTMSL. For Create and Update use Definitions. For Delete and Get use References.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, List, Get, Create, Update, Delete, RefreshWithXMLA, RefreshWithAPI, CheckStatusOfRefreshWithAPI, CancelRefreshWithAPI, Rename, ExportTMDL, ExportTMSL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete and Get operations.
+      RenameDefinitions: >-
+        For Rename operation.
+      RefreshDefinitions: >-
+        For RefreshWithXMLA operation.
+      Filter: >-
+        For List operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      TmslExportOptions: >-
+        For ExportTMSL operation.
+      RefreshType: >-
+        For RefreshWithAPI operation: refresh type — Automatic, Full, DataOnly, Calculate.
+      TableName: >-
+        For RefreshWithAPI operation: table name containing the partition.
+      PartitionName: >-
+        For RefreshWithAPI operation: partition name to refresh.
+      RequestId: >-
+        For CheckStatusOfRefreshWithAPI operation: the request ID returned by RefreshWithAPI.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  perspective_operations:
+    description: >-
+      Perform operations on semantic model perspectives, perspective tables, perspective columns, perspective measures, and perspective hierarchies. Supported operations: Help, List, Get, Create, Update, Delete, Rename, ListTables, GetTables, AddTables, UpdateTables, RemoveTables, ListColumns, GetColumns, AddColumns, RemoveColumns, ListMeasures, GetMeasures, AddMeasures, RemoveMeasures, ListHierarchies, GetHierarchies, AddHierarchies, RemoveHierarchies, ExportTMDL. Use the Operation parameter to specify which operation to perform. PerspectiveName is required for all operations except List.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, List, Get, Create, Update, Delete, Rename, ListTables, GetTables, AddTables, UpdateTables, RemoveTables, ListColumns, GetColumns, AddColumns, RemoveColumns, ListMeasures, GetMeasures, AddMeasures, RemoveMeasures, ListHierarchies, GetHierarchies, AddHierarchies, RemoveHierarchies, ExportTMDL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete, Get, and ExportTMDL operations.
+      RenameDefinitions: >-
+        For Rename operation.
+      Filter: >-
+        For ListTables, ListColumns, ListMeasures, and ListHierarchies operations.
+      PerspectiveName: >-
+        For AddTables, UpdateTables, RemoveTables, AddColumns, RemoveColumns, AddMeasures, RemoveMeasures, AddHierarchies, RemoveHierarchies, and related Get operations.
+      Tables: >-
+        For AddTables, UpdateTables, RemoveTables, and GetTables operations. Remove and Get require only TableName.
+      Columns: >-
+        For AddColumns, RemoveColumns, and GetColumns operations. Remove and Get require only TableName and ColumnName.
+      Measures: >-
+        For AddMeasures, RemoveMeasures, and GetMeasures operations. Remove and Get require only TableName and MeasureName.
+      Hierarchies: >-
+        For AddHierarchies, RemoveHierarchies, and GetHierarchies operations. Remove and Get require only TableName and HierarchyName.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  query_group_operations:
+    description: >-
+      Perform operations on semantic model query groups. All operations support both single and multiple items via list properties. Supported operations: Help, Create, Update, Delete, Get, List, ExportTMDL. For Create and Update operations, provide Definitions. For Delete, Get, and ExportTMDL operations, provide References. Batch options allow control over transaction behavior and error handling.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List, ExportTMDL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete, Get, and ExportTMDL operations.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  relationship_operations:
+    description: >-
+      Perform operations on semantic model relationships. Supported operations: Help, List, Get, Create, Update, Delete, Rename, Activate, Deactivate, Find, ExportTMDL. Use the Operation parameter to specify which operation to perform.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, List, Get, Create, Update, Delete, Rename, Activate, Deactivate, Find, ExportTMDL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete, Get, Activate, Deactivate, and ExportTMDL operations; TableName-only for Find operation.
+      RenameDefinitions: >-
+        For Rename operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  security_role_operations:
+    description: >-
+      Perform operations on semantic model security roles and table permissions. All CRUD operations support both single and multiple items via list properties. Supported operations: Help, Create, Update, Delete, Get, List, Rename, CreatePermissions, UpdatePermissions, DeletePermissions, GetPermissions, ListPermissions, GetEffectivePermissions, ExportTMDL, ExportTMSL. For Create, Update, Delete, Get, and Rename operations, provide a list of definitions or references even for single items. Batch options allow control over transaction behavior and error handling.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, Update, Delete, Get, List, Rename, CreatePermissions, UpdatePermissions, DeletePermissions, GetPermissions, ListPermissions, GetEffectivePermissions, ExportTMDL, ExportTMSL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete and Get operations.
+      RenameDefinitions: >-
+        For Rename operation.
+      PermissionDefinitions: >-
+        For CreatePermissions and UpdatePermissions operations.
+      PermissionReferences: >-
+        For DeletePermissions and GetPermissions operations.
+      PermissionFilter: >-
+        For ListPermissions operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      TmslExportOptions: >-
+        For ExportTMSL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  table_operations:
+    description: >-
+      Perform operations on semantic model tables. All operations support both single and multiple items via list properties. Supported operations: Help, Create, CreateFieldParameter, Update, Delete, Get, List, RefreshWithXMLA, RefreshWithAPI, CheckStatusOfRefreshWithAPI, CancelRefreshWithAPI, Rename, MarkAsDateTable, GetSchema, ExportTMDL, ExportTMSL. For Create and Update use Definitions, for Delete, Get, Refresh, GetSchema, ExportTMDL, and ExportTMSL use References, and for Rename use RenameDefinitions. Batch options allow control over transaction behavior and error handling.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, Create, CreateFieldParameter, Update, Delete, Get, List, RefreshWithXMLA, RefreshWithAPI, CheckStatusOfRefreshWithAPI, CancelRefreshWithAPI, Rename, MarkAsDateTable, GetSchema, ExportTMDL, ExportTMSL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Delete and Get operations; single item for RefreshWithXMLA, GetSchema, ExportTMDL, and ExportTMSL.
+      RenameDefinitions: >-
+        For Rename operation.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      TmslExportOptions: >-
+        For ExportTMSL operation.
+      MarkAsDateTableDefinitions: >-
+        For MarkAsDateTable operation.
+      FieldParameterDefinitions: >-
+        For CreateFieldParameter operation. List of field parameter table definitions, each with Name and Fields (ordered list of column/measure references with TableName, Name, ObjectType, and optional DisplayName).
+      ShouldCascadeDelete: >-
+        For Delete operation. Default: true.
+      RefreshType: >-
+        For RefreshWithAPI operation: refresh type — Automatic, Full, DataOnly, Calculate.
+      RequestId: >-
+        For CheckStatusOfRefreshWithAPI operation: the request ID returned by RefreshWithAPI.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.
+  trace_operations:
+    description: >-
+      Perform trace operations on semantic models to capture and analyze Analysis Services events. Supported operations: Help, Start, Stop, Pause, Resume, Clear, Get, List, Fetch, ExportJSON. Use the Operation parameter to specify which operation to perform.
+    request:
+      Operation: >-
+        Help, Start, Stop, Pause, Resume, Clear, Get, List, Report, ExportJSON
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Events: >-
+        For Start operation. Defaults: CommandBegin, CommandEnd, QueryBegin, QueryEnd, VertiPaqSEQueryBegin, VertiPaqSEQueryEnd, VertiPaqSEQueryCacheMatch, DirectQueryBegin, DirectQueryEnd, ExecutionMetrics, Error.
+      FilterCurrentSessionOnly: >-
+        Default: true. False captures all sessions.
+      ClearAfterFetch: >-
+        For Fetch and ExportJSON operations. Default: false.
+      FilePath: >-
+        For ExportJSON operation, required.
+      Columns: >-
+        For Fetch operation. Default: EventClassName, EventSubclassName, StartTime.
+  transaction_operations:
+    description: >-
+      Perform operations on Analysis Services transactions. Supported operations: Help, Begin, Commit, Rollback, GetStatus, ListActive. Use the Operation parameter to specify which operation to perform.
+    request:
+      Operation: >-
+        Help, Begin, Commit, Rollback, GetStatus, ListActive
+      ConnectionName: >-
+        Required for Begin operation.
+      TransactionId: >-
+        Required for Commit, Rollback, and GetStatus operations.
+  user_hierarchy_operations:
+    description: >-
+      Perform operations on semantic model user hierarchies. All operations support both single and multiple items via list properties. Supported operations: Help, List, Get, Create, Update, Delete, Rename, GetColumns, AddLevels, RemoveLevels, UpdateLevels, RenameLevels, ReorderLevels, ExportTMDL. For Create, Update, Delete, Get, Rename, and level operations, provide a list of definitions or references even for single items. Batch options allow control over transaction behavior and error handling.
+    request:
+      ConnectionName: >-
+        Uses the last connection if omitted.
+      Operation: >-
+        Help, List, Get, Create, Update, Delete, Rename, GetColumns, AddLevels, RemoveLevels, UpdateLevels, RenameLevels, ReorderLevels, ExportTMDL
+      Definitions: >-
+        For Create and Update operations.
+      References: >-
+        For Get and Delete operations.
+      RenameDefinitions: >-
+        For Rename operation.
+      LevelDefinitions: >-
+        For AddLevels and UpdateLevels operations.
+      LevelReferences: >-
+        For RemoveLevels operation.
+      LevelRenameDefinitions: >-
+        For RenameLevels operation.
+      ReorderLevelsDefinitions: >-
+        For ReorderLevels operation.
+      Filter: >-
+        For List operation.
+      ShouldCascadeDelete: >-
+        For Delete operation. Default: false.
+      TmdlExportOptions: >-
+        For ExportTMDL operation.
+      Options: >-
+        Batch operation options such as ContinueOnError and UseTransaction.

@@ -1,0 +1,109 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj": {}
+  },
+  "projects": {
+    "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj",
+        "projectName": "PowerBIModelingMCP.Library",
+        "projectPath": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj",
+        "packagesPath": "C:\\Users\\Ingen\\.nuget\\packages\\",
+        "outputPath": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Ingen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "framework": "net8.0",
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.400"
+      },
+      "frameworks": {
+        "net8.0": {
+          "framework": "net8.0",
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Azure.Core": {
+              "target": "Package",
+              "version": "[1.50.0, )"
+            },
+            "Microsoft.AnalysisServices": {
+              "target": "Package",
+              "version": "[19.114.8, )"
+            },
+            "Microsoft.AnalysisServices.AdomdClient": {
+              "target": "Package",
+              "version": "[19.114.8, )"
+            },
+            "Microsoft.Extensions.AI.Abstractions": {
+              "target": "Package",
+              "version": "[10.4.1, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.5, )"
+            },
+            "ModelContextProtocol": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "ModelContextProtocol.Core": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "YamlDotNet": {
+              "target": "Package",
+              "version": "[16.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400-preview.0.26322.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
