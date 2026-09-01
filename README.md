@@ -253,8 +253,9 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 
 ## Considerations and limitations
 
-- This MCP server follows the same rules and behaviors as modeling operations performed by External Tools. Refer to the [documentation](https://learn.microsoft.com/power-bi/transform-model/desktop-external-tools#data-modeling-operations) for more information.
 - You must have **Write** permission on the semantic model. For more information, see [Semantic model permissions](https://learn.microsoft.com/power-bi/connect-data/service-datasets-permissions).
+- This MCP server follows the same rules and behaviors as modeling operations performed by External Tools. Refer to the [documentation](https://learn.microsoft.com/power-bi/transform-model/desktop-external-tools#data-modeling-operations) for more information.
+- There is no tenant admin setting that specifically blocks the use of this MCP server. The server connects to semantic models through the XMLA endpoint. To prevent access through the MCP server, you must disable the XMLA endpoint. This also blocks other tools and applications that rely on XMLA connectivity. For more information, see [Semantic model connectivity with the XMLA endpoint](https://learn.microsoft.com/fabric/enterprise/powerbi/service-premium-connect-tools).
 
 ## License
 
