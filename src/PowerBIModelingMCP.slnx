@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="powerbi-modeling-mcp/powerbi-modeling-mcp.csproj" />
+  <Project Path="PowerBIModelingMCP.Library/PowerBIModelingMCP.Library.csproj" />
+</Solution>
