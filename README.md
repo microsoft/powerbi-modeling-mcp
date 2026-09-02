@@ -59,7 +59,7 @@ Add the JSON configuration to your MCP client. Node will automatically download 
 
 ```json
 {
-	"powerbi-authoring": {
+	"powerbi-modeling-mcp": {
 			"type": "stdio",
 			"command": "npx",
 			"args": [
@@ -85,7 +85,7 @@ Example of config that should work in most MCP clients:
 
 ```json
 {
-	"powerbi-authoring": {
+	"powerbi-modeling-mcp": {
 		"type": "stdio",
 		"command": "C:\\MCPServers\\PowerBIAuthoringMCP\\extension\\server\\powerbi-modeling-mcp.exe",
 		"args": [
