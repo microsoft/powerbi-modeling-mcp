@@ -1,6 +1,6 @@
 # Troubleshooting
 
-This guide helps you diagnose and resolve common issues with the Power BI Modeling MCP Server. 
+This guide helps you diagnose and resolve common issues with the Power BI Authoring MCP Server. 
 
 ## MCP Server Logging
 
@@ -17,7 +17,7 @@ Check the [MCP server output log](https://code.visualstudio.com/docs/copilot/cus
 
 ### Collect logs from EventSource
 
-The Power BI Modeling MCP Server also uses the [.NET EventSource](https://learn.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource) to emit detailed information. You can capture these logs with tools such as [dotnet-trace](https://learn.microsoft.com/dotnet/core/diagnostics/dotnet-trace).
+The Power BI Authoring MCP Server also uses the [.NET EventSource](https://learn.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource) to emit detailed information. You can capture these logs with tools such as [dotnet-trace](https://learn.microsoft.com/dotnet/core/diagnostics/dotnet-trace).
 
 Capturing the MCP logs with **dotnet-trace**:
 
@@ -43,7 +43,7 @@ All commands and queries issued by the MCP server are logged under the applicati
 
 ## Locating MCP Server Binaries
 
-The Power BI Modeling MCP Server extension installs its platform-specific binaries in the user profile directory under:
+The Power BI Authoring MCP Server extension installs its platform-specific binaries in the user profile directory under:
 
 `%USERPROFILE%/.vscode/extensions/microsoft.powerbi-modeling-mcp-<version>-<platform>/server`
 
