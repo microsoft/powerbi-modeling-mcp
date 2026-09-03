@@ -136,18 +136,6 @@ Once the connection is established, you can use natural language to ask the AI a
 > [!TIP]
 > The scenarios above are just examples. This MCP server equips your agents with modeling tools for any type of model change, and with the right prompt and context, you can automate virtually any modeling task.
 
-### Confirmation prompts
-
-This MCP Server supports the [Elicitation MCP protocol](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation), requiring user approval for the following actions:
-
-- Before the first modification made to a semantic model.
-- Before the first query executed against a semantic model.
-
-![mcp-server-elicitation](docs/img/mcp-server-elicitation.png)
-
-> [!TIP]
-> You can configure the MCP to skip these confirmations by using the `--skipconfirmation` option. 
-
 ## 🛠️ Available tools
 
 | Tool Name                               | What It Does                                                                                                   |
@@ -205,7 +193,6 @@ The MCP server supports several command line options and environment variables:
 | `--start`            |             | Starts the MCP server; necessary for server registration with MCP client.                                                                                                                                                 |
 | `--readwrite`        | Yes         | Enabled by default, enables write operations with confirmation prompt before applying an edit to your semantic model (once per database).                                                                                 |
 | `--readonly`         |             | Safe mode, prevents any write operations to your semantic model                                                                                                                                                           |
-| `--skipconfirmation` |             | Automatically approves all write operations without confirmation prompts. Only use skip confirmation mode when you're confident about the operations being performed and have appropriate backups of your semantic model. |
 | `--compatibility`    | PowerBI     | By default, it is optimized for Power BI semantic models. Change the setting to `Full` if you want to run this MCP server against Analysis Services databases.                                                            |
 | `--authmode`         | interactive | Set authentication mode: `serviceprincipal` or `interactive`.                                                                                                                                                                 |
 
@@ -232,8 +219,7 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 		"powerbi-modeling-mcp": {
 			"command": "[Path To MCP Server folder]\\powerbi-modeling-mcp.exe",
 			"args": [
-				"--start"
-                , "--skipconfirmation"
+				"--start"                
 				, "--authmode=interactive"    				
 			],
 			"env": {
