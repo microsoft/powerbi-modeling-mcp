@@ -246,7 +246,7 @@ To connect to a non-Power BI endpoint, such as Azure Analysis Services or SQL Se
 Restart the MCP server after changing the configuration.
 
 > [!IMPORTANT]
-> Only add hosts that your organization trusts and intends to use as Analysis Services or Power BI XMLA endpoints. Do not add a hostname solely to bypass the validation error without confirming who operates the endpoint.
+> Only add hosts that your organization trusts and intends to use as Analysis Services or Power BI XMLA endpoints. Access tokens are sent to these hosts when the MCP server connects, so controlling the allowlist protects your credentials. Do not add a hostname solely to bypass the validation error without confirming who operates the endpoint.
 
 ## 💬 Feedback and Support
 
