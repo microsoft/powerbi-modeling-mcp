@@ -1,5 +1,8 @@
 # ✨ Power BI Authoring MCP Server
 
+> [!IMPORTANT]
+> When authoring semantic models in a Fabric workspace, use the remote (hosted) Power BI Authoring MCP server. It requires no local installation, and Microsoft manages updates. See [Power BI Authoring MCP server](https://learn.microsoft.com/power-bi/developer/mcp/power-bi-authoring-mcp) to compare the remote and local options.
+
 The **Power BI Authoring MCP Server** implements the [MCP specification](https://modelcontextprotocol.io/introduction) to create a seamless connection between AI agents and Power BI semantic models. This project is in Public Preview and implementation may significantly change prior to our General Availability.
 
 The **Power BI Authoring MCP Server** brings Power BI semantic modeling capabilities to your AI agents through a **local MCP server**. This allows developers and AI applications to interact with Power BI models in entirely new ways, from using natural language to execute modeling changes to autonomous AI agentic development workflows.
@@ -203,7 +206,7 @@ The MCP server supports several command line options and environment variables:
 | `AZURE_CLIENT_SECRET`               |         | The client secret for the service principal. Required when `--authmode=serviceprincipal` and using secret-based authentication.                                                                                                                     |
 | `AZURE_CLIENT_CERTIFICATE_PATH`     |         | Path to a PFX/PEM certificate file for the service principal. Required when `--authmode=serviceprincipal` and using certificate-based authentication instead of a client secret.                                                                    |
 | `AZURE_CLIENT_CERTIFICATE_PASSWORD` |         | Password for the certificate file, if the certificate is password-protected. Only used when `--authmode=serviceprincipal` with certificate-based authentication.                                                                                    |
-| `PBI_MODELING_MCP_ACCESS_TOKEN`     |         | When configured, the MCP Server uses the specified access token instead of prompting for authentication when connecting to a semantic model in a Fabric workspace. This is useful in scenarios where the application handles authentication itself. |
+| `PBI_MODELING_MCP_ALLOWED_CONNECTION_HOSTS` | | Comma-separated list of trusted custom hostnames that the MCP server can use for Analysis Services or Power BI XMLA connections. |
 
 **For Visual Studio Code**, you can set the command line options and environment variables in the **User Settings**:
 
@@ -222,14 +225,28 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 				"--start"                
 				, "--authmode=interactive"    				
 			],
-			"env": {
-				"PBI_MODELING_MCP_ACCESS_TOKEN": "[ACCESS_TOKEN]"
-			},
 			"type": "stdio"
 		}
 	}
 }
 ```
+
+### Connection host allowlist
+
+To connect to a non-Power BI endpoint, such as Azure Analysis Services or SQL Server Analysis Services, add its hostname to the `PBI_MODELING_MCP_ALLOWED_CONNECTION_HOSTS` environment variable. Separate multiple hostnames with commas:
+
+```json
+{
+  "env": {
+    "PBI_MODELING_MCP_ALLOWED_CONNECTION_HOSTS": "xmla.contoso.example,another-xmla.contoso.example,sqlserver_01:8373"
+  }
+}
+```
+
+Restart the MCP server after changing the configuration.
+
+> [!IMPORTANT]
+> Only add hosts that your organization trusts and intends to use as Analysis Services or Power BI XMLA endpoints. Do not add a hostname solely to bypass the validation error without confirming who operates the endpoint.
 
 ## 💬 Feedback and Support
 
