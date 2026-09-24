@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > When authoring semantic models in a Fabric workspace, use the remote (hosted) Power BI Authoring MCP server. It requires no local installation, and Microsoft manages updates. See [Power BI Authoring MCP server](https://learn.microsoft.com/power-bi/developer/mcp/power-bi-authoring-mcp) to compare the remote and local options.
 
-The **Power BI Authoring MCP Server** implements the [MCP specification](https://modelcontextprotocol.io/introduction) to create a seamless connection between AI agents and Power BI semantic models. This project is in Public Preview and implementation may significantly change prior to our General Availability.
+The **Power BI Authoring MCP Server** implements the [MCP specification](https://modelcontextprotocol.io/introduction) to create a seamless connection between AI agents and Power BI semantic models.
 
 The **Power BI Authoring MCP Server** brings Power BI semantic modeling capabilities to your AI agents through a **local MCP server**. This allows developers and AI applications to interact with Power BI models in entirely new ways, from using natural language to execute modeling changes to autonomous AI agentic development workflows.
 
@@ -179,7 +179,6 @@ Once the connection is established, you can use natural language to ask the AI a
 | **query_group_operations**              | Organize and manage query groups for Power Query expressions                                                   |
 
 > [!NOTE]
-> - This project is in Public Preview and tools may significantly change prior to our General Availability.
 > - You can ask AI to explain what tools are available and show examples of how to use them. For example: `Tell me with some examples what I can do with the Power BI Authoring MCP server`
 
 ## ▶️ Available prompts
