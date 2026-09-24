@@ -238,8 +238,7 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 			"command": "[Path To MCP Server folder]\\powerbi-modeling-mcp.exe",
 			"args": [
 				"--start"                
-				, "--authmode=interactive"
-				, "--accepteula"    				
+				, "--authmode=interactive"				   				
 			],
 			"type": "stdio"
 		}
