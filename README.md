@@ -74,6 +74,19 @@ Add the JSON configuration to your MCP client. Node will automatically download 
 }
 ```
 
+#### Accept the EULA
+
+Before you can use the npm package, you must review and accept the [Power BI Authoring MCP Server EULA](EULA.txt). The MCP server blocks all other tool calls until you accept it.
+
+In an interactive session, your agent can call the `accept_eula` tool on your behalf after you explicitly authorize it. The server saves the acceptance in a local configuration on your machine, so you are not prompted again.
+
+For unattended execution, accept the EULA through either the command-line argument or environment variable:
+
+- Add `--accepteula` to the server's `args` array.
+- Set `PBI_MODELING_MCP_ACCEPT_EULA` to `true` in the server's environment.
+
+Only use these options after you have reviewed and agreed to the EULA.
+
 **Manual download**
 
 1. Download the VSIX package for the version you want using the URL below:
@@ -198,6 +211,7 @@ The MCP server supports several command line options and environment variables:
 | `--readonly`         |             | Safe mode, prevents any write operations to your semantic model                                                                                                                                                           |
 | `--compatibility`    | PowerBI     | By default, it is optimized for Power BI semantic models. Change the setting to `Full` if you want to run this MCP server against Analysis Services databases.                                                            |
 | `--authmode`         | interactive | Set authentication mode: `serviceprincipal` or `interactive`.                                                                                                                                                                 |
+| `--accepteula`       |             | Accepts the EULA for unattended execution.                                                                                                                  |
 
 | Environment variable name           | Default | Description                                                                                                                                                                                                                                         |
 | ----------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -206,6 +220,7 @@ The MCP server supports several command line options and environment variables:
 | `AZURE_CLIENT_SECRET`               |         | The client secret for the service principal. Required when `--authmode=serviceprincipal` and using secret-based authentication.                                                                                                                     |
 | `AZURE_CLIENT_CERTIFICATE_PATH`     |         | Path to a PFX/PEM certificate file for the service principal. Required when `--authmode=serviceprincipal` and using certificate-based authentication instead of a client secret.                                                                    |
 | `AZURE_CLIENT_CERTIFICATE_PASSWORD` |         | Password for the certificate file, if the certificate is password-protected. Only used when `--authmode=serviceprincipal` with certificate-based authentication.                                                                                    |
+| `PBI_MODELING_MCP_ACCEPT_EULA`      | `false` | Set to `true` to accept the EULA for unattended execution.                                                                                                                          |
 | `PBI_MODELING_MCP_ALLOWED_CONNECTION_HOSTS` | | Comma-separated list of trusted custom hostnames that the MCP server can use for Analysis Services or Power BI XMLA connections. |
 
 **For Visual Studio Code**, you can set the command line options and environment variables in the **User Settings**:
@@ -262,7 +277,7 @@ Restart the MCP server after changing the configuration.
 
 ## License
 
-By installing this software, you accept the license agreement. See [EULA.txt](EULA.txt) within the repository for legal terms.
+Use of this software is subject to the [Power BI Authoring MCP Server EULA](EULA.txt). NPX installations require explicit acceptance before the MCP tools can be used. See [Accept the EULA](#accept-the-eula) for the available acceptance methods.
 
 ## Data Privacy and LLM Providers
 
