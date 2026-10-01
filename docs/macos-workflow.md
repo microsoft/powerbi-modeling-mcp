@@ -89,6 +89,112 @@ Report changes remain local until you explicitly request publishing.
   is accepted; redirects are not followed. Mutating calls require
   `--allow-write`.
 
+## Which tools do users need?
+
+| Component | Purpose | Required when |
+| --- | --- | --- |
+| VS Code Copilot Agent | Runs the workflow from your instructions | Using this Copilot workflow |
+| Power BI Modeling MCP | Connects to semantic models; inspects tables, measures and relationships; performs permitted model/DAX operations | Reading or changing the semantic model |
+| `powerbi-report-cli` skill + `powerbi-report-author` CLI | Inspects, edits, validates, previews and packages modern PBIR report definitions | Editing pages and visuals |
+| Azure CLI | Obtains the signed-in user's Fabric/Power BI access token | Accessing service reports or live preview |
+| Fabric REST + macOS curl transport | Downloads, backs up and updates report definitions | Moving reports between the Mac and Fabric |
+| Chromium | Renders the CLI's browser preview | Checking actual visual output |
+
+The report CLI and skill are **not an additional MCP server**. The semantic-model
+MCP does not acquire report-page editing tools through this installer. A separate
+Fabric MCP is optional; this workflow uses REST for report-definition operations.
+The installer requires Apple Silicon macOS, Python 3, Node 24+, npm, Git and
+`codesign`. Users supply Azure CLI, sign-in and workspace/model permissions.
+
+## Prepare an editable report: PBIX, PBIP and PBIR
+
+Downloading a `.pbix` does not make it directly editable by this report workflow.
+PBIX is a packaged file; PBIP is a project; modern PBIR is the report definition
+stored as editable files in a `.Report` folder. `definition.pbir` describes the
+model binding; `definition/` contains pages and visuals. A `definition.pbir` file
+alone does not prove that the report uses modern PBIR.
+
+Choose the path matching the input:
+
+1. **Published Fabric report (preferred on Mac):** request
+   `getDefinition?format=PBIR`, complete any long-running operation, save the
+   final response body and unpack it into a fresh folder:
+
+   ```bash
+   powerbi-report-author unpack ./MyReport.Report --input downloaded-definition.json
+   ```
+
+   This decodes the service definition into files; it does not download or convert
+   the model's data. If the service returns PBIR-Legacy, stop: the CLI does not
+   convert that format into modern PBIR.
+
+2. **Existing modern PBIR/PBIP project:** use its `.Report` folder directly.
+   Preserve its model binding and resource files; no download is necessary.
+
+3. **Only a PBIX file:** use Windows Power BI Desktop to open it and Save As a
+   PBIP project using modern PBIR, then transfer the project to the Mac. See
+   [Microsoft's PBIP instructions](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview)
+   and [report-format documentation](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report).
+   Some PBIX files already contain modern PBIR; an inspected copy can provide
+   report files, but that is file-specific extraction, not a universal conversion.
+   This contribution does not include a general Mac PBIX converter or a tool to
+   rebuild an edited PBIX container. Renaming `.pbix` to `.pbip` does not convert it.
+
+Keep the original file unchanged. Before editing, verify modern PBIR structure,
+schemas, resource completeness and the intended semantic-model binding. Inspect
+model field types before choosing chart axes or date hierarchies. A text date
+field cannot be treated as an existing model date hierarchy.
+
+### What the original MCP provided, and what this contribution adds
+
+![Power BI on Mac: model MCP and separate report-authoring workflow](images/macos-model-report-workflow.png)
+
+Lane A shows the semantic-model capability already provided by the MCP. Lane B
+shows the separate report-authoring path assembled by this companion workflow.
+The Mac installer prepares the tools; it does not automatically download,
+convert, edit or publish a user's report.
+
+```mermaid
+flowchart TB
+  subgraph Original[Original semantic-model workflow]
+    A[VS Code Copilot] --> B[Power BI Modeling MCP]
+    B --> C[Semantic model: tables, measures, relationships, DAX]
+  end
+  subgraph Added[Companion workflow added for Apple Silicon]
+    D[Local signed model MCP and VS Code registration]
+    E[Fabric report] --> F[REST getDefinition as PBIR]
+    F --> G[CLI unpack to fresh .Report folder]
+    H[Existing modern PBIR project] --> G
+    G --> I[Copilot plus report skill and CLI]
+    I --> J[Edit pages, charts, tables and slicers]
+    J --> K[Validate and review browser rendering]
+    K --> L[Back up remote report and pack all parts]
+    L --> M[Authorized REST updateDefinition]
+    M --> N[Poll operation and download for readback]
+  end
+  B -. Mac setup .-> D
+```
+
+### Worked example from the user's report
+
+The downloaded PBIX in this session already contained a modern PBIR report
+definition. Its report files were extracted into a local `.Report` folder and
+bound to the existing Fabric semantic model; the original PBIX remained unchanged.
+That local preparation did not create a complete Desktop project or convert the
+embedded model. The subsequent workflow preserved the original page and added a
+Monthly Progress page with a title, column chart, detail table and four slicers.
+
+Model inspection found that the target-end field was text. The chart therefore
+used Modified Year/Month and current WIP Status: it represents modification
+activity, not historical status or completion progress.
+
+The user reported backing up the remote definition, uploading the complete
+report and verifying all 17 expected parts through readback. Their preview
+authorization error left that page's live rendering unverified. These are
+user-reported report-operation results, separate from the contribution's own
+installer/transport tests recorded below; those tests did not upload this report
+or visually review all its pages.
+
 ## Report download and upload
 
 Use the report skill's management workflow for target resolution, complete
