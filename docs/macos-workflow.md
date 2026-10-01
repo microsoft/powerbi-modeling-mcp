@@ -1,7 +1,9 @@
 # Apple Silicon model and report authoring workflow
 
 This contribution installs a **local companion workflow** for Microsoft Power BI
-semantic-model authoring and report visualization authoring in VS Code Copilot.
+semantic-model authoring and report visualization authoring with Codex or Copilot,
+including terminal workflows. The installer defaults to VS Code Copilot;
+other clients use the registration steps below.
 It does not publish an official Mac extension or add report tools to Microsoft's
 semantic-model MCP. Microsoft must still publish a supported Mac VSIX.
 
@@ -61,6 +63,92 @@ For pages, charts, slicers, formatting, and themes, ask Copilot to use the
 visual metadata and validation; the skill authors the report definitions.
 Report changes remain local until you explicitly request publishing.
 
+## Codex and Copilot terminal workflows
+
+The signed stdio model server and report CLI can be reused across clients.
+VS Code's MCP JSON does **not** register the server in Codex or Copilot CLI.
+Do not pass a Codex TOML file or Copilot CLI MCP JSON to the installer's `--config`
+option: that option writes the VS Code `servers` format only.
+
+### Codex CLI (terminal)
+
+Install the tools with a Codex-discoverable skill directory. A separate generated
+VS Code-format config keeps this installation out of your live VS Code config:
+
+```bash
+python3 scripts/macos_setup.py \
+  --config "$HOME/Library/Application Support/powerbi-macos/vscode-mcp.json" \
+  --skill-directory "$HOME/.agents/skills/powerbi-report-cli"
+
+codex mcp add powerbi-macos -- \
+  "$HOME/Library/Application Support/powerbi-macos/model/1.0.0/powerbi-modeling-mcp" \
+  --read-only
+codex mcp list
+
+export PATH="$HOME/Library/Application Support/powerbi-macos/bin:$PATH"
+cd /path/to/your/report/project
+codex
+```
+
+For an existing installation, reuse the installed binary and register the skill
+from the installer's `report-skill-package` using `--skill-directory`; do not
+overwrite an unrelated skill. Check existing MCP entries before adding one.
+The commands above assume the default prefix and pinned MCP version.
+Codex supports stdio MCP registration and discovers user skills in
+`~/.agents/skills`; see [Codex MCP documentation](https://developers.openai.com/codex/mcp)
+and [Codex skill documentation](https://developers.openai.com/codex/skills).
+Restart the client after registration. For model writes, deliberately replace
+`--read-only` with `--read-write --require-confirmation`.
+
+### Copilot CLI (terminal)
+
+The default installer registers the report skill in `~/.copilot/skills`, which
+Copilot CLI also uses. Register the model MCP separately:
+
+```bash
+copilot mcp add powerbi-macos -- \
+  "$HOME/Library/Application Support/powerbi-macos/model/1.0.0/powerbi-modeling-mcp" \
+  --read-only
+copilot mcp list
+
+export PATH="$HOME/Library/Application Support/powerbi-macos/bin:$PATH"
+cd /path/to/your/report/project
+copilot
+```
+
+If the installed Copilot CLI version does not provide `copilot mcp add`, use
+`/mcp add` interactively, select stdio and enter the same absolute binary path
+and arguments. CLI registration is stored separately in
+`~/.copilot/mcp-config.json`. See [GitHub's MCP instructions](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)
+and [CLI configuration reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference).
+
+### Direct terminal use and a shared agent prompt
+
+The report CLI can run directly without either AI client. For example, unpack a
+completed Fabric definition into a fresh folder and package all edited parts:
+
+```bash
+powerbi-report-author doctor
+powerbi-report-author unpack ./MyReport.Report --input downloaded-definition.json
+powerbi-report-author pack ./MyReport.Report --raw --out update-definition.json
+```
+
+`pack` creates a payload; it does not validate, publish or replace visual review.
+Use the report skill's authoring workflow to validate and preview edits before
+the management workflow publishes them. In either Codex or Copilot, a useful
+prompt is:
+
+> Use the powerbi-report-cli skill to inspect this modern PBIR report folder.
+> Use Power BI Modeling MCP to check the bound model's fields and measures.
+> Add the requested page, preserve existing pages, validate the report and review
+> the browser preview. Keep changes local until I request publishing.
+
+Each client still needs file/process/network access appropriate to its sandbox,
+an authenticated Power BI account and relevant service permissions. Review the
+EULA explicitly through the model MCP before use. These client setup instructions
+are documented routes, not a claim that every client has passed an end-to-end
+report upload and visual-review test.
+
 ## Fixes included
 
 - **Unsigned ARM64 MCP:** sign a separate local copy, keeping its resources,
@@ -93,7 +181,7 @@ Report changes remain local until you explicitly request publishing.
 
 | Component | Purpose | Required when |
 | --- | --- | --- |
-| VS Code Copilot Agent | Runs the workflow from your instructions | Using this Copilot workflow |
+| Codex or Copilot (editor or terminal) | Runs the workflow from your instructions | Using an AI agent; direct CLI use is also possible |
 | Power BI Modeling MCP | Connects to semantic models; inspects tables, measures and relationships; performs permitted model/DAX operations | Reading or changing the semantic model |
 | `powerbi-report-cli` skill + `powerbi-report-author` CLI | Inspects, edits, validates, previews and packages modern PBIR report definitions | Editing pages and visuals |
 | Azure CLI | Obtains the signed-in user's Fabric/Power BI access token | Accessing service reports or live preview |
@@ -157,7 +245,7 @@ convert, edit or publish a user's report.
 ```mermaid
 flowchart TB
   subgraph Original[Original semantic-model workflow]
-    A[VS Code Copilot] --> B[Power BI Modeling MCP]
+    A[Codex or Copilot: editor or terminal] --> B[Power BI Modeling MCP]
     B --> C[Semantic model: tables, measures, relationships, DAX]
   end
   subgraph Added[Companion workflow added for Apple Silicon]
@@ -165,7 +253,7 @@ flowchart TB
     E[Fabric report] --> F[REST getDefinition as PBIR]
     F --> G[CLI unpack to fresh .Report folder]
     H[Existing modern PBIR project] --> G
-    G --> I[Copilot plus report skill and CLI]
+    G --> I[Codex or Copilot plus report skill and CLI]
     I --> J[Edit pages, charts, tables and slicers]
     J --> K[Validate and review browser rendering]
     K --> L[Back up remote report and pack all parts]
