@@ -51,6 +51,14 @@ The easiest way to install this MCP Server is by using the **Visual Studio Code 
 > 
 > ![mcp-servers-in-copilot-enable](docs/img/mcp-servers-in-copilot-enable.png)
 
+### Experimental Apple Silicon companion workflow
+
+For a local macOS setup that combines semantic-model MCP tools with Microsoft's
+report-authoring skill for pages and visuals, see [macOS workflow](docs/macos-workflow.md).
+The helper installs official packages, locally signs an executable copy, and
+tests startup. It is a contribution for evaluation; an official macOS Marketplace
+extension still requires publisher changes.
+
 ### Manual
 
 This MCP Server can also be configured across other IDEs, CLIs, and MCP clients.
