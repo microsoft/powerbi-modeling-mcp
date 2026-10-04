@@ -53,6 +53,13 @@ This can be useful for:
 - Finding the MCP binary to use from other MCP client tools
 - Troubleshooting and replacing binaries in development builds
 
+## MacOS MCP server fails to start
+
+If you are running the server with npx and it exits immediately after start, the underlying binary might need to be signed. On a command line run:
+```
+codesign -s - ~/.npm/_npx/*/node_modules/@microsoft/powerbi-modeling-mcp-darwin-arm64/dist/powerbi-modeling-mcp
+```
+
 ## Forcing Re-Authentication When Connecting to a Semantic Model in the Service
 
 When you connect to a semantic model in a Fabric workspace, you are prompted to authenticate. That authentication is reused for the duration of the current session.
