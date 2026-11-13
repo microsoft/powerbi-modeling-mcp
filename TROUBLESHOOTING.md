@@ -4,6 +4,18 @@ This guide helps you diagnose and resolve common issues with the Power BI Author
 
 ## MCP Server Logging
 
+### Local audit logs
+
+On Windows, local audit logs are stored by default in `%LOCALAPPDATA%\Microsoft\powerbi-authoring-mcp\Logs`.
+
+To use a different directory, configure `PBI_MODELING_MCP_AUDIT_LOG_PATH` environment variable or `--audit-log-path` command line argument. Restart the MCP server after changing either setting.
+
+Each running MCP process writes a separate daily file, such as `audit-2026-09-08-p12345.log`. Each line is a JSON record with operation metadata, including the UTC timestamp, operation type, success status, and available semantic model and workspace identifiers. Audit logs do not include credentials, DAX query text, or model object contents.
+
+Audit logs are separate from the MCP output and EventSource diagnostic logs described below. Use those diagnostic logs to investigate errors and other server issues.
+
+### MCP output logs
+
 Check the [MCP server output log](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_mcp-output-log) for detailed information on any issues. These logs are essential for troubleshooting MCP Server problems.
 
 1. Open Command Palette (Ctrl+Shift+P)
@@ -66,4 +78,3 @@ This will reset the session and prompt you to authenticate again on the next con
 **Question:** I’m unable to install the new version of the MCP server in Visual Studio Code. The installation hangs and never completes.
 
 **Answer:** [Restart the MCP Server](#restart-mcp-server) and try again. If that doesn’t resolve the issue, restart Visual Studio Code.
-

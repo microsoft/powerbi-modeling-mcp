@@ -211,16 +211,19 @@ The MCP server supports several command line options and environment variables:
 | `--compatibility`    | PowerBI     | By default, it is optimized for Power BI semantic models. Change the setting to `Full` if you want to run this MCP server against Analysis Services databases.                                                            |
 | `--authmode`         | interactive | Set authentication mode: `serviceprincipal` or `interactive`.                                                                                                                                                                 |
 | `--accepteula`       |             | Accepts the EULA for unattended execution.                                                                                                                  |
+| `--audit-log-path`   |             | Sets the local audit log directory. Takes precedence over `PBI_MODELING_MCP_AUDIT_LOG_PATH`. See [Local audit logs](TROUBLESHOOTING.md#local-audit-logs). |
 
 | Environment variable name           | Default | Description                                                                                                                                                                                                                                         |
 | ----------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `AZURE_CLIENT_ID`                   |         | The application (client) ID of the Microsoft Entra service principal. Required when `--authmode=serviceprincipal`.                                                                                                                                 |
-| `AZURE_TENANT_ID`                   |         | The Microsoft Entra tenant (directory) ID. Required when `--authmode=serviceprincipal` or force a specific tenant with interactive authentication.                                                                                                                                                              |
+| `AZURE_TENANT_ID`                   |         | The Microsoft Entra tenant (directory) ID. Required when `--authmode=serviceprincipal`. |
 | `AZURE_CLIENT_SECRET`               |         | The client secret for the service principal. Required when `--authmode=serviceprincipal` and using secret-based authentication.                                                                                                                     |
 | `AZURE_CLIENT_CERTIFICATE_PATH`     |         | Path to a PFX/PEM certificate file for the service principal. Required when `--authmode=serviceprincipal` and using certificate-based authentication instead of a client secret.                                                                    |
 | `AZURE_CLIENT_CERTIFICATE_PASSWORD` |         | Password for the certificate file, if the certificate is password-protected. Only used when `--authmode=serviceprincipal` with certificate-based authentication.                                                                                    |
+| `PBI_MODELING_MCP_TENANT_ID`        |         | Set to a Microsoft Entra tenant ID to authenticate to a specific tenant during interactive authentication. If unset or empty, the MCP server authenticates to the default tenant of the account. |
 | `PBI_MODELING_MCP_ACCEPT_EULA`      | `false` | Set to `true` to accept the EULA for unattended execution.                                                                                                                          |
 | `PBI_MODELING_MCP_ALLOWED_CONNECTION_HOSTS` | | Comma-separated list of trusted custom hostnames that the MCP server can use for Analysis Services or Power BI XMLA connections. |
+| `PBI_MODELING_MCP_AUDIT_LOG_PATH`   |         | Overrides the default local audit log directory unless `--audit-log-path` is set. See [Local audit logs](TROUBLESHOOTING.md#local-audit-logs). |
 
 **For Visual Studio Code**, you can set the command line options and environment variables in the **User Settings**:
 
@@ -244,6 +247,10 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 	}
 }
 ```
+
+### Local logs and configuration
+
+The MCP server stores local files in `%LOCALAPPDATA%\Microsoft\powerbi-authoring-mcp`. It contains `config.json`, which stores settings such as EULA acceptance, and the `Logs` folder for local audit logs. See [Local audit logs](TROUBLESHOOTING.md#local-audit-logs) for details.
 
 ### Connection host allowlist
 
