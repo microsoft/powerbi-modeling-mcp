@@ -215,10 +215,11 @@ The MCP server supports several command line options and environment variables:
 | Environment variable name           | Default | Description                                                                                                                                                                                                                                         |
 | ----------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `AZURE_CLIENT_ID`                   |         | The application (client) ID of the Microsoft Entra service principal. Required when `--authmode=serviceprincipal`.                                                                                                                                 |
-| `AZURE_TENANT_ID`                   |         | The Microsoft Entra tenant (directory) ID. Required when `--authmode=serviceprincipal` or force a specific tenant with interactive authentication.                                                                                                                                                              |
+| `AZURE_TENANT_ID`                   |         | The Microsoft Entra tenant (directory) ID. Required when `--authmode=serviceprincipal`. |
 | `AZURE_CLIENT_SECRET`               |         | The client secret for the service principal. Required when `--authmode=serviceprincipal` and using secret-based authentication.                                                                                                                     |
 | `AZURE_CLIENT_CERTIFICATE_PATH`     |         | Path to a PFX/PEM certificate file for the service principal. Required when `--authmode=serviceprincipal` and using certificate-based authentication instead of a client secret.                                                                    |
 | `AZURE_CLIENT_CERTIFICATE_PASSWORD` |         | Password for the certificate file, if the certificate is password-protected. Only used when `--authmode=serviceprincipal` with certificate-based authentication.                                                                                    |
+| `PBI_MODELING_MCP_TENANT_ID`        |         | Set to a Microsoft Entra tenant ID to authenticate to a specific tenant during interactive authentication. If unset or empty, the MCP server authenticates to the default tenant of the account. |
 | `PBI_MODELING_MCP_ACCEPT_EULA`      | `false` | Set to `true` to accept the EULA for unattended execution.                                                                                                                          |
 | `PBI_MODELING_MCP_ALLOWED_CONNECTION_HOSTS` | | Comma-separated list of trusted custom hostnames that the MCP server can use for Analysis Services or Power BI XMLA connections. |
 
@@ -244,6 +245,10 @@ Open **Visual Studio Code** [user settings](https://code.visualstudio.com/docs/c
 	}
 }
 ```
+
+### Local logs and configuration
+
+The MCP server stores local files in `%LOCALAPPDATA%\Microsoft\powerbi-authoring-mcp`. It contains `config.json`, which stores settings such as EULA acceptance, and the `Logs` folder for local audit logs. See [Local audit logs](TROUBLESHOOTING.md#local-audit-logs) for details.
 
 ### Connection host allowlist
 
