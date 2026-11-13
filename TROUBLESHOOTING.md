@@ -6,7 +6,9 @@ This guide helps you diagnose and resolve common issues with the Power BI Author
 
 ### Local audit logs
 
-On Windows, local audit logs are stored by default in `%LOCALAPPDATA%\Microsoft\powerbi-authoring-mcp\Logs`. 
+On Windows, local audit logs are stored by default in `%LOCALAPPDATA%\Microsoft\powerbi-authoring-mcp\Logs`.
+
+To use a different directory, configure `PBI_MODELING_MCP_AUDIT_LOG_PATH` environment variable or `--audit-log-path` command line argument. Restart the MCP server after changing either setting.
 
 Each running MCP process writes a separate daily file, such as `audit-2026-09-08-p12345.log`. Each line is a JSON record with operation metadata, including the UTC timestamp, operation type, success status, and available semantic model and workspace identifiers. Audit logs do not include credentials, DAX query text, or model object contents.
 
