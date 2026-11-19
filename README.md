@@ -89,21 +89,17 @@ Only use these options after you have reviewed and agreed to the EULA.
 
 **Manual download**
 
-1. Download the VSIX package for the version you want using the URL below:
-   - Template: `https://marketplace.visualstudio.com/_apis/public/gallery/publishers/analysis-services/vsextensions/powerbi-modeling-mcp/[version]/vspackage?targetPlatform=[platform]`
-   - Example (version `0.1.9`, platform `win32-x64`): `https://marketplace.visualstudio.com/_apis/public/gallery/publishers/analysis-services/vsextensions/powerbi-modeling-mcp/0.1.9/vspackage?targetPlatform=win32-x64`
-2. Rename the downloaded `.visx` file to `.zip`
-3. Unzip the contents to a folder of your choice, for example: `C:\MCPServers\PowerBIAuthoringMCP`
-4. Run `\extension\server\powerbi-modeling-mcp.exe`
-5. Copy the MCP JSON registration from the console and register it in your preferred MCP client tool.
+1. Open the [releases page](https://github.com/microsoft/powerbi-modeling-mcp/releases) and choose the version you want.
+2. Under **Assets**, download the binary ZIP for your operating system and architecture, for example `powerbi-modeling-mcp-win-x64.zip` for Windows x64.
+3. Extract the ZIP to a folder of your choice, for example `C:\MCPServers\PowerBIAuthoringMCP`.
 
-Example of config that should work in most MCP clients:
+In your MCP client configuration, set `command` to the path of the extracted server executable (`powerbi-modeling-mcp.exe` on Windows). For example:
 
 ```json
 {
 	"powerbi-authoring-local": {
 		"type": "stdio",
-		"command": "C:\\MCPServers\\PowerBIAuthoringMCP\\extension\\server\\powerbi-modeling-mcp.exe",
+		"command": "C:\\MCPServers\\PowerBIAuthoringMCP\\powerbi-modeling-mcp.exe",
 		"args": [
 			"--start"                
 		],
