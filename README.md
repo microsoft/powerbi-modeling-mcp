@@ -89,7 +89,7 @@ Only use these options after you have reviewed and agreed to the EULA.
 
 **Manual download**
 
-1. Open the [releases page](/releases) and choose the version you want.
+1. Open the [releases page](https://github.com/microsoft/powerbi-modeling-mcp/releases) and choose the version you want.
 2. Under **Assets**, download the binary ZIP for your operating system and architecture, for example `powerbi-modeling-mcp-win-x64.zip` for Windows x64.
 3. Extract the ZIP to a folder of your choice, for example `C:\MCPServers\PowerBIAuthoringMCP`.
 
