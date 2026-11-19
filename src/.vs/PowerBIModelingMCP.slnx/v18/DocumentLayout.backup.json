@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbimodelingmcp.library\\powerbimodelingmcp.library.tools\\daxqueryoperationstool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|solutionrelative:powerbimodelingmcp.library\\powerbimodelingmcp.library.tools\\daxqueryoperationstool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbimodelingmcp.library\\powerbimodelingmcp.library.tools\\daxqueryoperationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|solutionrelative:powerbimodelingmcp.library\\powerbimodelingmcp.library.tools\\daxqueryoperationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbimodelingmcp.library\\powerbimodelingmcp.library.tools\\daxqueryoperationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|solutionrelative:powerbimodelingmcp.library\\powerbimodelingmcp.library.tools\\daxqueryoperationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbimodelingmcp.library\\powerbimodelingmcp.library.tools\\daxqueryexecutemetadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|solutionrelative:powerbimodelingmcp.library\\powerbimodelingmcp.library.tools\\daxqueryexecutemetadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbimodelingmcp.library\\powerbimodelingmcp.library.prompts\\connectionprompts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|solutionrelative:powerbimodelingmcp.library\\powerbimodelingmcp.library.prompts\\connectionprompts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbimodelingmcp.library\\powerbimodelingmcp.library.prompts\\daxqueryprompts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA1ABF66-1AEB-889B-C97E-6F4F44CA0BDE}|PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.csproj|solutionrelative:powerbimodelingmcp.library\\powerbimodelingmcp.library.prompts\\daxqueryprompts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E021653B-8B06-4009-D584-A13CC1DB4D4F}|powerbi-modeling-mcp\\powerbi-modeling-mcp.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbi-modeling-mcp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E021653B-8B06-4009-D584-A13CC1DB4D4F}|powerbi-modeling-mcp\\powerbi-modeling-mcp.csproj|solutionrelative:powerbi-modeling-mcp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E021653B-8B06-4009-D584-A13CC1DB4D4F}|powerbi-modeling-mcp\\powerbi-modeling-mcp.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbi-modeling-mcp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E021653B-8B06-4009-D584-A13CC1DB4D4F}|powerbi-modeling-mcp\\powerbi-modeling-mcp.csproj|solutionrelative:powerbi-modeling-mcp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E021653B-8B06-4009-D584-A13CC1DB4D4F}|powerbi-modeling-mcp\\powerbi-modeling-mcp.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbi-modeling-mcp\\powerbimodelingmcp.console\\connectioninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E021653B-8B06-4009-D584-A13CC1DB4D4F}|powerbi-modeling-mcp\\powerbi-modeling-mcp.csproj|solutionrelative:powerbi-modeling-mcp\\powerbimodelingmcp.console\\connectioninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E021653B-8B06-4009-D584-A13CC1DB4D4F}|powerbi-modeling-mcp\\powerbi-modeling-mcp.csproj|d:\\consultorsalud\\consultorsaludmcp\\src\\powerbi-modeling-mcp\\powerbimodelingmcp.console\\tokencredentialauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E021653B-8B06-4009-D584-A13CC1DB4D4F}|powerbi-modeling-mcp\\powerbi-modeling-mcp.csproj|solutionrelative:powerbi-modeling-mcp\\powerbimodelingmcp.console\\tokencredentialauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DaxQueryOperationsTool.cs",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationsTool.cs",
+              "RelativeDocumentMoniker": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationsTool.cs",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationsTool.cs",
+              "RelativeToolTip": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationsTool.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T21:09:58.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DaxQueryOperationResponse.cs",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationResponse.cs",
+              "RelativeDocumentMoniker": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationResponse.cs",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationResponse.cs",
+              "RelativeToolTip": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T21:09:57.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DaxQueryOperationRequest.cs",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationRequest.cs",
+              "RelativeDocumentMoniker": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationRequest.cs",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationRequest.cs",
+              "RelativeToolTip": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryOperationRequest.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T21:09:50.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DaxQueryExecuteMetadata.cs",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryExecuteMetadata.cs",
+              "RelativeDocumentMoniker": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryExecuteMetadata.cs",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryExecuteMetadata.cs",
+              "RelativeToolTip": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Tools\\DaxQueryExecuteMetadata.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T21:09:45.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ConnectionPrompts.cs",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Prompts\\ConnectionPrompts.cs",
+              "RelativeDocumentMoniker": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Prompts\\ConnectionPrompts.cs",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Prompts\\ConnectionPrompts.cs",
+              "RelativeToolTip": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Prompts\\ConnectionPrompts.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T21:09:04.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DaxQueryPrompts.cs",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Prompts\\DaxQueryPrompts.cs",
+              "RelativeDocumentMoniker": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Prompts\\DaxQueryPrompts.cs",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Prompts\\DaxQueryPrompts.cs",
+              "RelativeToolTip": "PowerBIModelingMCP.Library\\PowerBIModelingMCP.Library.Prompts\\DaxQueryPrompts.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T21:08:59.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\powerbi-modeling-mcp\\Program.cs",
+              "RelativeDocumentMoniker": "powerbi-modeling-mcp\\Program.cs",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\powerbi-modeling-mcp\\Program.cs",
+              "RelativeToolTip": "powerbi-modeling-mcp\\Program.cs",
+              "ViewState": "AgIAAPcAAAAAAAAAAAAQwK4AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T17:45:06.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\powerbi-modeling-mcp\\appsettings.json",
+              "RelativeDocumentMoniker": "powerbi-modeling-mcp\\appsettings.json",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\powerbi-modeling-mcp\\appsettings.json",
+              "RelativeToolTip": "powerbi-modeling-mcp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-11T17:44:14.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ConnectionInfo.cs",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\powerbi-modeling-mcp\\PowerBIModelingMCP.Console\\ConnectionInfo.cs",
+              "RelativeDocumentMoniker": "powerbi-modeling-mcp\\PowerBIModelingMCP.Console\\ConnectionInfo.cs",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\powerbi-modeling-mcp\\PowerBIModelingMCP.Console\\ConnectionInfo.cs",
+              "RelativeToolTip": "powerbi-modeling-mcp\\PowerBIModelingMCP.Console\\ConnectionInfo.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T17:44:39.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TokenCredentialAuthService.cs",
+              "DocumentMoniker": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\powerbi-modeling-mcp\\PowerBIModelingMCP.Console\\TokenCredentialAuthService.cs",
+              "RelativeDocumentMoniker": "powerbi-modeling-mcp\\PowerBIModelingMCP.Console\\TokenCredentialAuthService.cs",
+              "ToolTip": "D:\\ConsultorSalud\\ConsultorSaludMCP\\src\\powerbi-modeling-mcp\\PowerBIModelingMCP.Console\\TokenCredentialAuthService.cs",
+              "RelativeToolTip": "powerbi-modeling-mcp\\PowerBIModelingMCP.Console\\TokenCredentialAuthService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T17:44:25.508Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
