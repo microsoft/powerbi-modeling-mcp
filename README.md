@@ -1,7 +1,8 @@
 # ✨ Power BI Authoring MCP Server
 
 > [!IMPORTANT]
-> When authoring semantic models in a Fabric workspace, use the remote (hosted) Power BI Authoring MCP server. It requires no local installation, and Microsoft manages updates. See [Power BI Authoring MCP server](https://learn.microsoft.com/power-bi/developer/mcp/power-bi-authoring-mcp) to compare the remote and local options.
+> - When authoring semantic models in a Fabric workspace, use the remote (hosted) Power BI Authoring MCP server. It requires no local installation, and Microsoft manages updates. See [Power BI Authoring MCP server](https://learn.microsoft.com/power-bi/developer/mcp/power-bi-authoring-mcp) to compare the remote and local options.
+> - The local server doesn't support macOS. On a Mac, use the hosted server.
 
 The **Power BI Authoring MCP Server** implements the [MCP specification](https://modelcontextprotocol.io/introduction) to create a seamless connection between AI agents and Power BI semantic models.
 
